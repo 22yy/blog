@@ -1,0 +1,10 @@
+module.exports=[
+  {
+    text:'问题',
+    link:'/projects/qunawang/problem'
+  },
+  {
+    text:'gist',
+    link:'/projects/qunawang/gist'
+  }
+]

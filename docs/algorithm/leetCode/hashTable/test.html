@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let s = 'anagram'
+        s = [...s].sort()
+        console.log([...s].sort());
+        let t = 'nagaram'
+        t = [...t].sort()
+        console.log([...t].sort());
+        console.log(s.toString());
+        console.log(t.toString());
+        console.log(s.toString() === t.toString());
+        console.log([1, 2, 3, '4'].join() === [1, 2, 3, 4].join());
+        console.log(JSON.stringify([{
+            name: 'nls'
+        }, {
+            sex: '男'
+        }]) === JSON.stringify([{
+            name: 'nls'
+        }, {
+            sex: '男'
+        }]));
+        console.log(s.length === t.length && s.every((item, index) => {
+            return item === t[index]
+        }));
+    </script>
+</body>
+
+</html>

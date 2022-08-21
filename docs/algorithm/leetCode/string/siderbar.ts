@@ -1,0 +1,10 @@
+module.exports=[
+  {
+    text:'反转字符串',
+    link:'string/反转字符串'
+  },
+  {
+    text:'左旋转字符串',
+    link:'string/左旋转字符串'
+  }
+]

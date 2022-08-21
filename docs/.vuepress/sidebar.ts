@@ -1,46 +1,31 @@
 import { sidebar } from "vuepress-theme-hope";
 
-export default sidebar([
-  "/",
-  "/home",
-  "/slide",
-  {
-    text: "如何使用",
-    icon: "creative",
-    prefix: "/guide/",
-    link: "/guide/",
-    children: "structure",
-  },
-  {
-    text: "文章",
-    icon: "note",
-    prefix: "/posts/",
-    children: [
-      {
-        text: "文章 1-4",
-        icon: "note",
-        collapsable: true,
-        prefix: "article/",
-        children: ["article1", "article2", "article3", "article4"],
-      },
-      {
-        text: "文章 5-12",
-        icon: "note",
-        children: [
-          {
-            text: "文章 5-8",
-            icon: "note",
-            collapsable: true,
-            prefix: "article/",
-            children: ["article5", "article6", "article7", "article8"],
-          },
-          {
-            text: "文章 9-12",
-            icon: "note",
-            children: ["article9", "article10", "article11", "article12"],
-          },
-        ],
-      },
-    ],
-  },
-]);
+export default sidebar({
+  "/notes/h5c3/": require('../notes/h5c3/sidebar'),
+
+  "/notes/JavaScript/": require('../notes/JavaScript/sidebar'),
+
+  '/notes/nodejs/': require('../notes/nodejs/sidebar'),
+
+  '/notes/vue/': require('../notes/vue/sidebar'),
+
+  '/notes/React/': require('../notes/React/sidebar'),
+
+  '/notes/typeScript/': require('../notes/typeScript/sidebar'),
+
+  '/notes/webpack/': require('../notes/webpack/sidebar'),
+
+  '/notes/Git/':require('../notes/Git/sidebar'),  
+
+  '/notes/axios' :require('../notes/axios/sidebar'),
+
+  '/fundation/network/': require('../fundation/network/sidebar'),
+
+  '/algorithm/leetCode/': require('../algorithm/leetCode/sidebar'),
+
+  '/algorithm/dataStructure/': require('../algorithm/dataStructure/sidebar'),
+
+  '/resources/website/' : require('../resources/website/sidebar'),
+
+  '/projects/qunawang/':require('../projects/qunawang/sidebar')
+});
