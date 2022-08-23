@@ -118,6 +118,8 @@ Content-Encoding: gzip
 Accept-Encoding: gzip, deflate
 ```  
 
+- Cache-Control 用来指定当前的请求或者回复，是否使用缓存机制
+
 
 ## 4.HTTP 特性 
 

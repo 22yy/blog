@@ -6,5 +6,9 @@ module.exports=[
   {
     text:'左旋转字符串',
     link:'string/左旋转字符串'
+  },
+  {
+    text:'实现strStr()',
+    link:'string/strStr'
   }
 ]

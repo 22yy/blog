@@ -13,5 +13,9 @@ module.exports = [{
 {
    text:'IP',
    link:'/fundation/network/IP'
+},
+{
+  text:'other',
+  link:'/fundation/network/other'
 }
 ]

@@ -161,7 +161,7 @@ n秒内只执行一次，如果n秒内再次触发，只有一次生效
  window.addEventListener('resize',throttle(coloring,2000))
 ```
 
-## 5.手写Promise核心代码
+## 5.Promise核心代码
 - 初始结构
 - this指向
 - then
