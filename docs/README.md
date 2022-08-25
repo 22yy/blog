@@ -3,13 +3,15 @@ home: true
 layout: Blog
 icon: home
 title: FishBlog
+# 是否显示背景图和描述
+hero: false
 # heroImage: /logo.png
-bgImage: /bg.png
+bgImage: false
 heroText: FishBlog
-heroFullScreen: true
-tagline: 会进步的
+heroFullScreen: false
+tagline: 闲着也是闲着
 
-footer: 会实现的
+
+footer: 你不要云
 ---
 
-会再见的

@@ -14,10 +14,10 @@ export default hopeTheme({
 
   iconAssets: "iconfont",
 
-  logo: "/logo.svg",
+  // logo: "/logo.svg",
 
   //文档在仓库中的目录
-  docsDir: "demo/src",
+  docsDir: "myblog/docs",
 
   // 导航栏
   navbar: navbar,
@@ -63,7 +63,7 @@ export default hopeTheme({
     //头像被剪裁成圆形
     roundAvatar: true,
     //描述
-    description: "一个前端开发者",
+    description: "一天睡25个小时",
     //介绍页地址
     intro: "/intro.html",
     medias: {

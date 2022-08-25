@@ -180,3 +180,26 @@ Date:
 # 然后
 git reset commit_id
 ```
+
+## 5.
+
+```bash
+git clone 远程仓库地址
+
+git pull 
+
+git checkout 分支名
+
+git add .
+
+git commit -m '日志信息'
+
+git push
+
+git checkout main
+
+git merge 分支名
+
+git push
+
+```
