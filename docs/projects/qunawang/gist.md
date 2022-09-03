@@ -67,7 +67,7 @@ handleTouchMove(e){
     if(this.touchStatus){
       // console.log(e.touches);
       const touchY=e.touches[0].clientY-79
-      const index=Math.floor((touchY-startY)/20)
+      const index=Math.floor((touchY-startY)/20)//20是每个字母的高度
       // console.log(index);
       if (index >= 0 && index < this.letters.length) {
           this.$emit('change', this.letters[index])
@@ -94,3 +94,80 @@ handleTouchMove(e){
           }
         }, 16)
 ```
+
+## 搜索功能实现 
+
+input框双向绑定keyword，用watch监听keyword的变化，遍历cities的每个value值，用indexOf判断keyword是否在value中，最后赋值给list，展示list。
+
+同样会遇到list无法滚动的问题，用watch监听list执行this.$nextTick回调更新即可    
+
+
+## 使用Vuex实现首页和列表页的通信
+
+为城市设置click事件   
+
+注意vuex的版本
+
+vue默认vue3版本，vuex默认vuex4版本，vuex4只能在vue3中使用，在vue2中能使用vuex3,那么不能默认下载最新的版本   
+
+```bash
+npm install vuex@3 --save
+```  
+
+## 详情页头部渐隐渐现实现
+
+为头部动态绑定样式,监听滚动事件
+
+```js
+handleScroll(){
+      const top=document.documentElement.scrollTop
+      if(top>60){
+        let opacity=top / 140
+        opacity=opacity>1 ? 1 :opacity
+        this.opacityStyle={
+          opacity
+        }
+        this.showAbs=false
+      }else{
+        this.showAbs=true
+      }
+    }
+```
+
+## 使用递归组件  
+
+在List组件中使用递归组件
+```js
+<div class="list">
+     <div class="item"  v-for='(item,index) in categoryList' :key="index">
+        <div class="item-title">
+         <span class="item-title-icon"></span>
+          {{item.title}}
+        </div>
+      <div class="item-children" v-if='item.children'>
+           <List :categoryList='item.children'></List>
+      </div>
+     </div>
+  </div>
+```
+
+## dev-server能通过ip地址访问
+
+在packge.json>script>dev中加入  
+
+```js
+-- host 0.0.0.0
+```  
+
+## 兼容性问题
+
+手机浏览器不支持promise  展示白屏
+  - 安装babel-polyfill包 npm i babel-polyfill --save
+  - main.js中引入  
+
+
+## 简单打包上线  
+
+1. npm run build 生成dist目录
+2. 把dist目录放到后端项目的根目录中
+3. 

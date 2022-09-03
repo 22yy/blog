@@ -1,6 +1,6 @@
 module.exports=[
   {
-    text:'操作系统',
-    link:'/fundation/opreting-system/os'
+    text:'进程管理',
+    link:'/fundation/opreting-system/进程管理'
   }
 ]

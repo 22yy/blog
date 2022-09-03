@@ -18,5 +18,10 @@ module.exports = [{
   text:'字符串',
   collapsable: true,
   children:require('./string/siderbar')
+},
+{
+  text:'二叉树',
+  collapsable: true,
+  children:require('./binaryTree/sidebar')
 }
 ]

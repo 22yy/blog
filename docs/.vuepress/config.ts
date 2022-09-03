@@ -6,7 +6,7 @@ export default defineUserConfig({
   lang: "zh-CN",
   title: "FishBlog",
   description: "前端学习笔记",
-  base: "/",
+  base: "/present.github.io/",
   theme,
   plugins:[
     searchPlugin

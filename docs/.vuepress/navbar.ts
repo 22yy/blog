@@ -59,7 +59,7 @@ export default navbar([
     icon: 'strong',
     children: [
       { text: '计算机网络', link: '/fundation/network/OSI' },
-      { text: '操作系统', link: '/fundation/opreting-system/os' }
+      { text: '操作系统', link: '/fundation/opreting-system/进程管理' }
     ]
   },
 

@@ -77,3 +77,33 @@ watch: {
 // cities是动态渲染的数据
 ```
 
+## Chrome监听touch类事件报错，无法被动侦听事件preventDefault
+
+>Unable to preventDefault inside passive event listener due to target being treated as passive  
+
+当浏览器首先对默认的事件进行响应的时候，要检查一下是否进行了默认事件的取消。这样就在响应滑动操作之前有那么一丝丝的耽误时间。  
+
+google就决定默认取消了对这个事件的检查，默认时间就取消了。直接执行滑动操作。这样就更加的顺滑了。但是浏览器的控制台就会进行错误提醒了   
+
+
+即不让控制台提示，而且 preventDefault() 有效果  :
+
+1. 注册处理函数时，明确声明为不是被动的  
+window.addEventListener(‘touchmove’, func, { passive: false })  
+
+2. 用 CSS 属性 `touch-action: none; `这样任何触摸事件都不会产生默认行为，但是 touch 事件照样触发。  
+
+
+## 页面滚动会相互影响 
+
+将一个页面滚动到一定位置后，切换页面也会在相同的位置   
+
+vue-router官网关于滚动行为的描述：<https://router.vuejs.org/zh/guide/advanced/scroll-behavior.html>
+
+在router的index.js添加如下代码
+
+```js
+scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
+```

@@ -21,6 +21,8 @@ export default sidebar({
 
   '/fundation/network/': require('../fundation/network/sidebar'),
 
+  '/fundation/opreting-system/': require('../fundation/opreting-system/sidebar'),
+
   '/algorithm/leetCode/': require('../algorithm/leetCode/sidebar'),
 
   '/algorithm/dataStructure/': require('../algorithm/dataStructure/sidebar'),
