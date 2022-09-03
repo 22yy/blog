@@ -1,1 +1,1 @@
-var e="/present.github.io/assets/event.76382223.png";export{e as _};
+var s="/myblog/assets/event.76382223.png";export{s as _};
