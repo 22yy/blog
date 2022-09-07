@@ -1,21 +1,26 @@
 module.exports = [{
   text: '基础知识',
+  collapsable: true,
   link: '/fundation/network/OSI'
 },
 {
   text: 'HTTP',
-  link:'/fundation/network/HTTP'
+  collapsable: true,
+  children:require('./HTTP/sidebar')
 },
 {
   text:"TCP",
-  link:'/fundation/network/TCP'
+  collapsable: true,
+  children:require('./TCP/sidebar')
 },
 {
    text:'IP',
-   link:'/fundation/network/IP'
+   collapsable: true,
+   children:require('./IP/sidebar')
 },
 {
   text:'other',
-  link:'/fundation/network/other'
+  collapsable: true,
+  children:require('./other/sidebar')
 }
 ]

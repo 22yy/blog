@@ -12,6 +12,6 @@ heroFullScreen: false
 tagline: 闲着也是闲着
 
 
-footer: 你不要云
+footer: 天天开心
 ---
 
