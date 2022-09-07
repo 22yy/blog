@@ -170,4 +170,16 @@ handleScroll(){
 
 1. npm run build 生成dist目录
 2. 把dist目录放到后端项目的根目录中
-3. 
+  
+
+## vue组件异步加载
+
+```js
+export default new Router({
+  routes:[{
+    path: '/',
+    anme: 'Home',
+    component: ()=>import('@pages/home/Home')
+  }]
+})
+```

@@ -2,5 +2,13 @@ module.exports=[
   {
     text:'递归遍历',
     link:'binaryTree/递归遍历'
+  },
+  {
+    text:'迭代遍历',
+    link:'binaryTree/迭代遍历'
+  },
+  {
+    text:'层序遍历',
+    link:'binaryTree/层序遍历'
   }
 ]

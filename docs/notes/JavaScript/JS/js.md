@@ -528,4 +528,22 @@ return arr1.length===arr2.length && arr1.every((item,index)=>{return item===arr2
 
 ## 10.立即执行的具名函数A内修改A的值时到底发生了什么  
 
-[相关文章](https://segmentfault.com/q/1010000002810093)
+[相关文章](https://segmentfault.com/q/1010000002810093)    
+
+
+
+## 11.+号的行为  
+
+1. 如果有一个操作数是字符串，那么把另一个操作数转换成字符串连接
+2. 如果有一个操作数是对象，，调用对象的valueOf方法转换成原始值，没有该方法或者转换后非原始值，则调用toString()方法
+3. 其他情况，两个操作数都会被转换成数字执行加法操作   
+
+```js
+ console.log(1 + NaN); // NaN
+ console.log("1" + 3); // 13
+ console.log(1 + undefined); // NaN
+ console.log(1 + null); // 1
+ console.log(1 + {}); // 1[object Object]
+ console.log(1 + []); // 1
+ console.log([] + {}); // [object Object]
+```

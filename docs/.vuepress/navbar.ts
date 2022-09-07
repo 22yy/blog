@@ -59,7 +59,7 @@ export default navbar([
     icon: 'strong',
     children: [
       { text: '计算机网络', link: '/fundation/network/OSI' },
-      { text: '操作系统', link: '/fundation/opreting-system/进程管理' }
+      { text: '操作系统', link: '/fundation/opreting-system/进程管理/基础知识' }
     ]
   },
 
@@ -72,10 +72,11 @@ export default navbar([
   },
 
   {
-    text: 'Learn Other',
+    text: 'Other',
     icon: 'code',
     children: [
-      { text: 'Python', link: '' }
+      { text: 'Python', link: '/other/python/快速入门' },
+      { text: '踩坑记录', link:'/other/problem/部署'}
     ]
   },
   {

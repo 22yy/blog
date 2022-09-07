@@ -25,15 +25,17 @@ features:
     link: /notes/JavaScript/JS/js
   
   - title: Vue
-    icon: note
+    icon: vue
     link: /notes/vue/vueNode/vnode
 
   - title: 计算机网络
     icon: markdown
-    link: /fundation/network/HTTP
+    link: /fundation/network/HTTP/HTTP基础知识
+
+    
 
 copyright: false
 
-footer: 别看了，这不是一般的笔记，这是王维诗里的笔记
+footer: 天天开心
 
 ---

@@ -29,5 +29,9 @@ export default sidebar({
 
   '/resources/website/' : require('../resources/website/sidebar'),
 
-  '/projects/qunawang/':require('../projects/qunawang/sidebar')
+  '/projects/qunawang/':require('../projects/qunawang/sidebar'),
+
+  '/other/problem/' : require('../other/problem/sidebar'),
+
+  '/other/python/' : require('../other/python/sidebar')
 });
