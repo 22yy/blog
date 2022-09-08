@@ -2,9 +2,11 @@
 
 ## 1. Cookie如何防范XSS攻击   
 
-XSS(跨站脚本攻击)指攻击者在返回的HTML中嵌入JavaScript脚本，为减轻这些攻击，需要在HTTP头部配上，set-cookie:  
+XSS(跨站脚本攻击)指攻击者在返回的HTML中嵌入JavaScript脚本，为减轻这些攻击，需要在HTTP头部配上，set-cookie:   
 
-httponly-此属性可防止XSS，它禁止JavaScript脚本访问cookie
+httponly-此属性可防止XSS，它禁止JavaScript脚本访问cookie    
+
+
 secure- 此属性告诉浏览器仅在请求为https的时候发送cookie    
 
 

@@ -13,29 +13,29 @@ actions:
   # - text: 博客主页 🏠
   #   link: /
 
-features:
-  - title: HTML&CSS
-    icon: markdown
-    # details: 基础知识
-    link: /notes/h5c3/CSS/css
+# features:
+#   - title: HTML&CSS
+#     icon: markdown
+#     # details: 基础知识
+#     link: /notes/h5c3/CSS/css
 
-  - title: JavaScript
-    icon: slides
-    # details: 重要
-    link: /notes/JavaScript/JS/js
+#   - title: JavaScript
+#     icon: slides
+#     # details: 重要
+#     link: /notes/JavaScript/JS/js
   
-  - title: Vue
-    icon: vue
-    link: /notes/vue/vueNode/vnode
+#   - title: Vue
+#     icon: vue
+#     link: /notes/vue/vueNode/vnode
 
-  - title: 计算机网络
-    icon: markdown
-    link: /fundation/network/HTTP/HTTP基础知识
+#   - title: 计算机网络
+#     icon: markdown
+#     link: /fundation/network/HTTP/HTTP基础知识
 
     
 
-copyright: false
+# copyright: false
 
-footer: 天天开心
+# footer: 天天开心
 
----
+# ---
