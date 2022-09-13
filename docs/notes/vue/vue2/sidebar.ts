@@ -2,5 +2,9 @@ module.exports=[
   {
     text:'vue相关',
     link:'vue2/vue基础知识'
+  },
+  {
+    text:"vue相关问题",
+    link:'vue2/vue_about'
   }
 ]

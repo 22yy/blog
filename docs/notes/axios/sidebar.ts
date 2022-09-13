@@ -2,5 +2,9 @@ module.exports=[
   {
     text:'axios基础操作',
     link:'/notes/axios/axios'
+  },
+  {
+    text:'axios相关',
+    link:'/notes/axios/axios_about'
   }
 ]

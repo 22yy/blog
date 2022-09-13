@@ -25,7 +25,7 @@ export default navbar([
       {
         text: '其他',
         children: [
-          { text: 'Node.js', link: 'nodejs/mysql' },
+          { text: 'Node.js', link: 'nodejs/node基础' },
           { text: 'TypeScript', link: 'typeScript/ts' },
           { text: 'webpack', link: 'webpack/webpack' },
           { text:'Git', link: 'Git/git'},
@@ -76,7 +76,8 @@ export default navbar([
     icon: 'code',
     children: [
       { text: 'Python', link: '/other/python/快速入门' },
-      { text: '踩坑记录', link:'/other/problem/部署'}
+      { text: '部署', link:'/other/problem/部署'},
+      { text:'Javaweb',link:'/other/Javaweb/maven'}
     ]
   },
   {

@@ -8,5 +8,9 @@ module.exports=[
     text:'进程管理',
     collapsable: true,
     children : require('./进程管理/sidebar')
+  },
+  {
+    text:'相关问题',
+    link:'/fundation/opreting-system/other'
   }
 ]

@@ -6,15 +6,20 @@
 
 Git 工具在Linux 上是集成的，只要cmd命令行执行 sudo apt-get install git-core 命令即可。
 
-Windows 系统需要到 <https://git-for-windows.github.io/> 进行下载即可
+Windows 系统需要到 <https://git-for-windows.github.io/> 进行下载即可   
+
+![git](./images/git1.jpg)    
+
 
 ### 1.1 创建提交用户名和邮箱
 
 ```sh
 git config --global user.name "Tony"
 
-git config --global user.email "tony@gmail.com"
-```
+git config --global user.email "tony@gmail.com"   
+```  
+ 
+![config](./images/config.jpg)    
 
 ### 1.2 创建本地仓库
 
@@ -181,7 +186,7 @@ Date:
 git reset commit_id
 ```
 
-## 5.
+## 5.常用
 
 ```bash
 git clone 远程仓库地址

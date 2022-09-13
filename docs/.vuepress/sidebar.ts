@@ -33,5 +33,7 @@ export default sidebar({
 
   '/other/problem/' : require('../other/problem/sidebar'),
 
-  '/other/python/' : require('../other/python/sidebar')
+  '/other/python/' : require('../other/python/sidebar'),
+
+  '/other/Javaweb/' : require('../other/Javaweb/sidebar')
 });
