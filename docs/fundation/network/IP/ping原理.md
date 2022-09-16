@@ -1,4 +1,4 @@
-# ping相关  
+# ping原理 
 
 ping 是基于 ICMP 协议工作的，ICMP 报文是封装在 IP 包里面，它工作在网络层，是 IP 协议的助手。    
 

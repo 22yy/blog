@@ -1,0 +1,10 @@
+module.exports=[
+  {
+    text:'OSI',
+    link:'basic/OSI'
+  },
+  {
+    text:'键入URL到显示页面过程',
+    link:'basic/url'
+  }
+]

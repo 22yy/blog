@@ -1,7 +1,7 @@
 module.exports = [{
   text: '基础知识',
   collapsable: true,
-  link: '/fundation/network/OSI'
+  children: require('./basic/sidebar')
 },
 {
   text: 'HTTP',

@@ -35,5 +35,9 @@ module.exports = [{
 {
   text:'移动端触屏事件',
   link:'WebApi/touchEvent'
+},
+{
+  text:'浏览器',
+  link:'WebApi/browser'
 }
 ]

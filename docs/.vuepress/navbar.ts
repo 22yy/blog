@@ -58,7 +58,7 @@ export default navbar([
     text: '计算机基础',
     icon: 'strong',
     children: [
-      { text: '计算机网络', link: '/fundation/network/OSI' },
+      { text: '计算机网络', link: '/fundation/network/basic/OSI' },
       { text: '操作系统', link: '/fundation/opreting-system/进程管理/基础知识' }
     ]
   },

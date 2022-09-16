@@ -2,5 +2,9 @@ module.exports=[
   {
     text:'TCP基础知识',
     link:'TCP/TCP基础知识'
+  },
+  {
+    text:'TCP重传机制,滑动窗口，拥塞控制。流量控制',
+    link:'TCP/TCP重传'
   }
 ]

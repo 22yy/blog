@@ -26,7 +26,7 @@ export default hopeTheme({
   sidebar: sidebar,
 
   // 默认为 GitHub. 同时也可以是一个完整的 URL
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "https://github.com/Jinping1/myblog.git",
 
   // 自定义仓库链接文字。默认从 `repo` 中自动推断为
   // "GitHub" / "GitLab" / "Gitee" / "Bitbucket" 其中之一，或是 "Source"。
