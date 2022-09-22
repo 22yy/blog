@@ -4,7 +4,7 @@ import theme from "./theme";
 
 export default defineUserConfig({
   lang: "zh-CN",
-  title: "FishBlog",
+  title: "Blog",
   description: "前端学习笔记",
   base: "/",
   theme,

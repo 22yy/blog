@@ -8,7 +8,7 @@ export default hopeTheme({
 
   //文章显示的默认作者
   author: {
-    name: "Fish",
+    name: "wish",
     url: "",
   },
 
@@ -26,7 +26,7 @@ export default hopeTheme({
   sidebar: sidebar,
 
   // 默认为 GitHub. 同时也可以是一个完整的 URL
-  repo: "https://github.com/Jinping1/myblog.git",
+  repo: "https://github.com/asyouwish22/blog.git",
 
   // 自定义仓库链接文字。默认从 `repo` 中自动推断为
   // "GitHub" / "GitLab" / "Gitee" / "Bitbucket" 其中之一，或是 "Source"。
@@ -98,7 +98,7 @@ export default hopeTheme({
       container: true,
     },
     // 使用PDF组件
-    components:["PDF"],
+    components:["PDF","Badge"],
     
   },
 });
