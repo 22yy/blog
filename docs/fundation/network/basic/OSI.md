@@ -46,23 +46,23 @@
 
 ![datalink](./images/datalink.png)     
 
-![1](./images/dataLink/1%20(1).png)    
+![1](./images/dataLink/1.png)    
 
-![2](./images/dataLink/1%20(2).png)   
+![2](./images/dataLink/2.png)   
 
-![3](./images/dataLink/1%20(3).png)    
+![3](./images/dataLink/3.png)    
 
-![4](./images/dataLink/1%20(4).png)   
+![4](./images/dataLink/4.png)   
 
-![5](./images/dataLink/1%20(6).png)    
+![5](./images/dataLink/5.png)    
 
-![6](./images/dataLink/1%20(6).png)   
+![6](./images/dataLink/6.png)   
 
-![7](./images/dataLink/1%20(7).png)   
+![7](./images/dataLink/7.png)   
 
-![8](./images/dataLink/1%20(8).png)    
+![8](./images/dataLink/8.png)    
 
-![9](./images/dataLink/1%20(9).png)       
+![9](./images/dataLink/9.png)       
 
 
 
