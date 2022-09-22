@@ -10,5 +10,13 @@ module.exports=[
   {
     text:'层序遍历',
     link:'binaryTree/层序遍历'
+  },
+  {
+    text:'翻转二叉树',
+    link:'binaryTree/翻转二叉树'
+  },
+  {
+    text:'N叉树的遍历',
+    link:'binaryTree/N叉树的遍历'
   }
 ]

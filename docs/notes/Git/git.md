@@ -207,4 +207,67 @@ git merge 分支名
 
 git push
 
+```  
+
+## 不小心把不需要的文件添加到暂存区  
+
+不小心把依赖包文件夹node_modules（这个很大而且没必要git管理这份代码）add了
+
+第一种方法:   
+
+```sh
+$ git reset HEAD -- node_modules   
+注意：双杠--后面有一个空格，后面再跟文件名。
 ```
+
+第二种方法:  
+
+```sh
+$ git rm -r --cached node_modules  
+```  
+
+## 把本地项目上传到github    
+本地仓库：  
+
+1. git init 在本地创建一个Git仓库（clone的别人的仓库就先删除.git文件夹）
+
+2. git add . 将项目添加到暂存区；  
+
+3. git commit -m "注释内容" 将项目提交到Git仓库；  
+
+
+远程仓库：    
+1. 添加SSH KEY；  
+
+2. 新建repositories；  
+
+本地仓库：  
+1. git remote add origin git@github.com:UserName/projectName.git 将本地仓库与远程仓库关联；  
+
+2. git push -u origin master 将本地项目推送到远程仓库。  
+
+>新建repositories时最好不要勾选添加README.md文件，git push时会报错 ,因为新建的Github仓库的README.md文件不在本地仓库的目录中    
+
+
+如果在选择了Initialize this repository with a README,将远程仓库最新的更新拉取到本地，并合并到主支干：   
+```sh
+git pull --rebase origin master   
+```
+这时再重新push就可以   
+
+
+## 修改git remote url   
+
+1. 修改命令   
+```sh
+git remote set-url origin [url]  
+
+例如: 
+git remote set-url origin git@gitee.com:xigexige/ztjs.git
+```
+2. 先删后加    
+```sh
+git remote rm origin 
+git remote add origin [url]
+```
+3. 直接修改.git里的config文件   

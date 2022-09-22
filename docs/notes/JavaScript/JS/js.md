@@ -1,6 +1,6 @@
 # JS 我不知道的...知识点
 
-## 1.图片懒加载
+## 图片懒加载
  - 即延迟加载
  - 滚动到网页下才能看到看不见的图片
 
@@ -58,7 +58,7 @@ const callback=entries=>{
 
 ```
 
-## 2.new一个对象的过程
+## new一个对象的过程
 
 1. 创建一个新对象:son
 2. 新对象会被执行[[prototype]]连接；
@@ -86,7 +86,7 @@ var son=Mother('Da')
 console.log(son.lastName);//Da
 ```
 
-## 3.防抖
+## 防抖
 >频繁触发一个事件，只触发最后一次，以最后一次为准  
 n秒后执行该事件，如果n秒内再次触发，则重新计时
   - 改变页面大小的统计
@@ -122,7 +122,7 @@ n秒后执行该事件，如果n秒内再次触发，则重新计时
   button.addEventListener('click',debounce(payMoney,1000))
 ```
 
-## 4.节流
+## 节流
 >频繁触发一个事件，只能每隔一段时间触发一次  
 n秒内只执行一次，如果n秒内再次触发，只有一次生效
 - 如果需要统计用户滚动屏幕的行为来做出相应的网页反应，需要设置节流，因为如果用户不断进行滚动，就会不断产生请求，响应也会不断增加，容易产生阻塞
@@ -161,7 +161,7 @@ n秒内只执行一次，如果n秒内再次触发，只有一次生效
  window.addEventListener('resize',throttle(coloring,2000))
 ```
 
-## 5.Promise核心代码
+## Promise核心代码
 - 初始结构
 - this指向
 - then
@@ -367,7 +367,7 @@ console.log('第三步');
 ```  
 
 
-## 6.图片的异步加载
+## 图片的异步加载
 ```js
 const imgAddress='图片地址';
 
@@ -394,7 +394,7 @@ imgPromise(imgAddress)
 ```
 
 
-## 7.splice和slice
+## splice和slice
 1. slice(start,end)
 - 从start开始截取到end但是不包括end
 - 返回值为截取出来的元素的集合
@@ -431,7 +431,7 @@ imgPromise(imgAddress)
   console.log(arr); //[1]
 ```
 
-## 8.为什么Object.prototype.toString.call能完美判断数据类型
+## 为什么Object.prototype.toString.call能完美判断数据类型
 
 ### 判断数据类型可以使用：
 - typeof
@@ -497,7 +497,7 @@ Array 里面也有toString 方法。根据原型链的就近原则，会优
 如果不加 call, Object.prototype.toString结果永远是[object Object]，因为 Object.prototype永远是一个对象。加上call,改变toString 的this 指向，就可以将 Object 里的toString 方法引用在数组身上
 ``` 
 
-## 9.js判断数组相等
+## js判断数组相等
 
 >注意数组是引用数据类型，在` == `或 `=== `比较时，比较的是地址值，[1,2] == [1,2],[1,2] === [1,2]返回的都是false
 
@@ -526,13 +526,13 @@ JSON.stringify([{name:'nls'},{sex:'男'}])===JSON.stringify([{name:'nls'},{sex:'
 return arr1.length===arr2.length && arr1.every((item,index)=>{return item===arr2[index]})
 ```  
 
-## 10.立即执行的具名函数A内修改A的值时到底发生了什么  
+## 立即执行的具名函数A内修改A的值时到底发生了什么  
 
 [相关文章](https://segmentfault.com/q/1010000002810093)    
 
 
 
-## 11.+号的行为  
+## +号的行为  
 
 1. 如果有一个操作数是字符串，那么把另一个操作数转换成字符串连接
 2. 如果有一个操作数是对象，，调用对象的valueOf方法转换成原始值，没有该方法或者转换后非原始值，则调用toString()方法
@@ -545,5 +545,20 @@ return arr1.length===arr2.length && arr1.every((item,index)=>{return item===arr2
  console.log(1 + null); // 1
  console.log(1 + {}); // 1[object Object]
  console.log(1 + []); // 1
- console.log([] + {}); // [object Object]
-```
+ console.log([] + {}); // [object Object] 
+```   
+
+## for in 和 for of  
+
+for...in是ES5的标准，该方法遍历的是对象的属性名称(key：键名)    
+  - for...in遍历Array时，拿到的是每个元素索引    
+  - for…in的原理是: Object.keys()：返回给定对象所有可枚举属性的字符串数组        
+
+for...of是ES6的标准，该方法遍历的是对象的属性所对应的值(value：键值)。所以它用来遍历数组时得到每个元素的值     
+  - for…of 语句在可迭代对象上创建一个迭代循环，调用自定义迭代钩子，并为每个不同属性的值执行语句     
+  
+### 区别   
+  - for-in只是获取数组的索引；for-of会获取数组的值  
+  - for-in会遍历对象的整个原型链，性能差；for-of只遍历当前对象，不会遍历原型链  
+  - 对于数组的遍历，for-in会返回数组中所有可枚举的属性(包括原型链上可枚举的属性)；for-of只返回数组的下标对应的属性值   
+  - for-of适用遍历数组／字符串/map/set等有迭代器对象的集合，但是不能遍历普通对象（obj is not iterable）  

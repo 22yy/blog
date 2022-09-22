@@ -97,6 +97,8 @@ export default hopeTheme({
       //添加提示、注释、信息、注意、警告和详情自定义容器的支持，默认true 
       container: true,
     },
+    // 使用PDF组件
+    components:["PDF"],
     
   },
 });
