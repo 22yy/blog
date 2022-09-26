@@ -1,5 +1,9 @@
 module.exports=[
   {
+    text:'基础知识',
+    link:'/notes/axios/axios_basic'
+  },
+  {
     text:'axios基础操作',
     link:'/notes/axios/axios'
   },

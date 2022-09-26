@@ -1,4 +1,11 @@
-module.exports = [{
+module.exports = [
+  {
+    text:'基础知识',
+    collapsable: true,
+    children:require('./basic/sidebar')
+  },
+  
+  {
   text: 'webpack',
   collapsable: true,
   children: [{

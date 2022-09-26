@@ -23,3 +23,22 @@
 - Node的服务器单线程的  
 	- Node处理请求时是单线程，但是在后台拥有一个I/O线程池  
 
+
+## 关闭进程
+1. 查看端口占用情况   
+```js
+netstat -ano |findstr “9876”   
+```
+2. 查看相关进程信息  
+```js
+tasklist | findstr 11448
+```
+3. 关闭进程  
+
+以下命令二选一即可，推荐第一种，指定进程号关闭   
+```js
+taskkill /f /t /im “11448”
+
+taskkill /f /t /im “java.exe”
+```
+

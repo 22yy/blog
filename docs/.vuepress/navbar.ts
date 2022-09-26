@@ -25,7 +25,7 @@ export default navbar([
       {
         text: '其他',
         children: [
-          { text: 'Node.js', link: 'nodejs/node基础' },
+          { text: 'Node.js', link: 'nodejs/node_basic' },
           { text: 'TypeScript', link: 'typeScript/ts' },
           { text: 'webpack', link: 'webpack/webpack' },
           { text:'Git', link: 'Git/git'},

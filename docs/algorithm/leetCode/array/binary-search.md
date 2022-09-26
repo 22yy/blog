@@ -68,4 +68,72 @@ var search = function(nums, target) {
    }
    return -1;
 };
+```  
+
+
+## 588.山脉数组的峰顶索引  
+
+[题目连接](https://leetcode.cn/problems/peak-index-in-a-mountain-array/)   
+
+### 枚举   
+
+遍历的过程中，我们最先遍历到的满足arri > arri+1 的下标 i一定也满足 arri-1 < arri    
+
+```js
+var peakIndexInMountainArray = function(arr) {
+  const n=arr.length;
+  let ans=-1;
+  for(let i=0;i<n-1;i++){
+      if(arr[i]>arr[i+1]){
+          ans=i;
+          break;
+      }
+  }
+  return ans;
+};
+```
+
+### 二分查找  
+
+遍历与上面一致   
+
+```js
+var peakIndexInMountainArray = function(arr) {
+ const n=arr.length;
+ let left=1;//不会是0
+ let right=n-2;
+ let ans=0;
+ while(left<=right){
+    let mid=Math.floor((right+left)/2);
+    if(arr[mid]>arr[mid+1]){
+        ans=mid;
+        right=mid-1;
+    }else{
+       left=mid+1;
+    }
+ }
+ return ans;
+};
+```   
+
+
+### 367.有效的完全平方数  
+
+[题目连接](https://leetcode.cn/problems/valid-perfect-square/)   
+
+```js
+ let left=0;
+   let right=num;
+   while(left<=right){
+       const mid=left+Math.floor((right-left)/2);
+       const square=mid*mid;
+       if(square<num){
+           left=mid+1;
+       }else if(square>num){
+           right=mid-1;
+       }else{
+           return true;
+       }
+   }
+   return false;
 ```
