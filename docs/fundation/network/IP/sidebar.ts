@@ -1,7 +1,7 @@
 module.exports=[
   {
     text:'IP基础知识',
-    link:'IP/IP基础知识'
+    link:'IP/ip_basic'
   },
   {
     text:'IP相关协议',
@@ -9,6 +9,6 @@ module.exports=[
   },
   {
     text:'ping相关',
-    link:'IP/ping原理'
+    link:'IP/ping'
   }
 ]

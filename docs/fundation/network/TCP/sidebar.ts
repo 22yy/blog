@@ -1,10 +1,14 @@
 module.exports=[
   {
     text:'TCP基础知识',
-    link:'TCP/TCP基础知识'
+    link:'TCP/TCP_basic'
   },
   {
-    text:'TCP重传机制,滑动窗口，拥塞控制。流量控制',
-    link:'TCP/TCP重传'
-  }
+    text:'TCP重传机制',
+    link:'TCP/retransmission'
+  },
+  {
+    text:'滑动窗口',
+    link:'TCP/sliding-window'
+  },
 ]

@@ -73,7 +73,7 @@ var search = function(nums, target) {
 
 ## 588.山脉数组的峰顶索引  
 
-[题目连接](https://leetcode.cn/problems/peak-index-in-a-mountain-array/)   
+[题目链接](https://leetcode.cn/problems/peak-index-in-a-mountain-array/)   
 
 ### 枚举   
 
@@ -119,7 +119,7 @@ var peakIndexInMountainArray = function(arr) {
 
 ### 367.有效的完全平方数  
 
-[题目连接](https://leetcode.cn/problems/valid-perfect-square/)   
+[题目链接](https://leetcode.cn/problems/valid-perfect-square/)   
 
 ```js
  let left=0;
@@ -136,4 +136,54 @@ var peakIndexInMountainArray = function(arr) {
        }
    }
    return false;
+```
+
+### 69.x的平方根
+
+[题目链接](https://leetcode.cn/problems/sqrtx/)
+
+```js
+var mySqrt = function(x) {
+   if (x == 0 || x == 1) {
+        return x;
+    }
+ let l=0;
+ let r=x;
+ let cur=0;
+ while(l<=r){
+     let mid=l+Math.floor((r-l)/2);
+     if(mid*mid>x){
+         r=mid-1;
+     }else{
+         cur=mid;
+         l=mid+1;
+     }
+ }
+ return cur;
+};
+```
+
+### 744.寻找比目标字母大的最小字母
+
+[题目链接](https://leetcode.cn/problems/find-smallest-letter-greater-than-target/)  
+
+注意判断条件，target比letters最后一个字母大时，返回第一个字母
+
+```js
+var nextGreatestLetter = function(letters, target) {
+  if (target >= letters[letters.length- 1]) {
+        return letters[0];
+    }
+ let left=0;
+ let right=letters.length-1;
+ while(left<=right) {
+   let mid=left+Math.floor((right-left)/2);
+   if(letters[mid]>target){
+      right=mid-1;
+   }else{
+      left=mid+1;
+   }
+ }
+   return letters[left];
+};
 ```
