@@ -120,7 +120,21 @@ n秒后执行该事件，如果n秒内再次触发，则重新计时
  }
 
   button.addEventListener('click',debounce(payMoney,1000))
+```  
+
+```js
+const debounce = function(func,wait){
+  let timeout;
+  return function () {
+    let args = arguments;
+    if(timeout) clearTimeout(timeout);
+    timeout=setTimeout (()=>{
+      func.apply(this,args)
+    },wait)
+  }
+} 
 ```
+  
 
 ## 节流
 >频繁触发一个事件，只能每隔一段时间触发一次  

@@ -11,4 +11,40 @@
 2. 用户登录系统时，会动态生成路由，其中 constantRoutes 必然包含，asyncRoutes 会进行过滤   
 3. 过滤是看路由中是否包含meta和meta.roles属性，如果没有该属性，不需要进行权限校验，如果包含 roles 属性则会判断用户的角色是否命中路由中的任意一个权限，如果命中，则将路由保存下来，如果未命中，则直接将该路由舍弃；    
 4. asyncRoutes 处理完毕后，会和 constantRoutes 合并为一个新的路由对象，并保存到 vuex 的 permission/routes 中   
-5. 用户登录系统后，侧边栏会从 vuex 中获取 state.permission.routes，根据该路由动态渲染用户菜单   
+5. 用户登录系统后，侧边栏会从 vuex 中获取 state.permission.routes，根据该路由动态渲染用户菜单    
+
+
+## nginx配置  
+
+>upload文件夹里存放电子书相关
+
+在安装目录下修改nginx.conf  
+
+末尾大括号之前添加
+
+```sh
+include C:/Users/dd/upload/upload.conf;
+``` 
+
+upload.conf文件如下 ；   
+
+```sh
+server
+{ 
+  charset utf-8;
+  listen 8089;
+  server_name http_host;
+  #资源文件路径
+  root C:/Users/dd/upload/;
+  autoindex on;
+  #不使用缓存
+  add_header Cache-Control "no-cache, must-revalidate";
+  #路由，/表示对所有路由生效
+  location / { 
+    add_header Access-Control-Allow-Origin *;
+  }
+}
+```
+
+访问：  
+http://localhost:8089

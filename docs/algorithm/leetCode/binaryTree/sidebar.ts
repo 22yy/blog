@@ -18,5 +18,29 @@ module.exports=[
   {
     text:'N叉树的遍历',
     link:'binaryTree/N叉树的遍历'
+  },
+  {
+    text:'对称二叉树',
+    link:'binaryTree/对称二叉树',
+  },
+  {
+    text:'完全二叉树',
+    link:'binaryTree/完全二叉树',
+  },
+  {
+    text:'左叶子之和',
+    link:'binaryTree/左叶子之和'
+  },
+  {
+    text:'完全二叉树的节点个数',
+    link:'binaryTree/完全二叉树的节点个数'
+  },
+  {
+    text:'平衡二叉树',
+    link:'binaryTree/平衡二叉树',
+  },
+  {
+    text:'完全二叉树的节点个数',
+    link:'binaryTree/完全二叉树的节点个数'
   }
 ]
