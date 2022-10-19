@@ -8,7 +8,7 @@ module.exports=[
     link:'JS/js_advanced'
   },
   {
-    text:'JS 每日一题',
+    text:'JS算了',
     link:'JS/js_everyday'
   }
 ]

@@ -68,7 +68,7 @@ export default navbar([
     icon: 'info',
     children: [
       { text: 'Vue2.5开发去哪网', link: '/projects/qunawang/problem' },
-      { text:'小慕读书', link:'/projects/xiaomureading/gist'}
+      { text:'电子书后台管理系统', link:'/projects/reading/problem'}
     ]
   },
 

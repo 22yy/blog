@@ -31,7 +31,7 @@ export default sidebar({
 
   '/projects/qunawang/':require('../projects/qunawang/sidebar'),
 
-  '/projects/xiaomureading' :require('../projects/xiaomureading/sidebar'),
+  '/projects/reading/' :require('../projects/reading/sidebar'),
 
   '/other/problem/' : require('../other/problem/sidebar'),
 

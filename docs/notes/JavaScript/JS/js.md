@@ -86,6 +86,24 @@ var son=Mother('Da')
 console.log(son.lastName);//Da
 ```
 
+```js
+//1.创建一个空对象
+// 2. 将空对象的原型指向构造函数的原型
+// 3. 空对象作为构造函数上下文（改变this指向）
+// 4. 对构造函数有返回值的处理判断：如果返回基本类型的数据则无影响，返回引用类型则new 无效
+function Fun(age,name) {
+  this.age = age;
+  this.name = name;
+}
+function create(fn,...args) {
+  var obj = {};
+  Object.setPrototypeOf(obj,fn.prototype);
+  var result = fn.apply(obj,args)
+  return result instanceof Object ? result : obj ;
+}
+console.log(create(Fun,18,'张三'));
+```
+
 ## 防抖
 >频繁触发一个事件，只触发最后一次，以最后一次为准  
 n秒后执行该事件，如果n秒内再次触发，则重新计时
@@ -389,7 +407,7 @@ const imgPromise=(url)=>{
   return new Promise((resolve,reject)=>{
     const img=new image();
     img.src=url;
-    imh.onload=()=>{
+    img.onload=()=>{
       resolve(img);
     };
     img.onerror=()=>{
@@ -576,3 +594,16 @@ for...of是ES6的标准，该方法遍历的是对象的属性所对应的值(va
   - for-in会遍历对象的整个原型链，性能差；for-of只遍历当前对象，不会遍历原型链  
   - 对于数组的遍历，for-in会返回数组中所有可枚举的属性(包括原型链上可枚举的属性)；for-of只返回数组的下标对应的属性值   
   - for-of适用遍历数组／字符串/map/set等有迭代器对象的集合，但是不能遍历普通对象（obj is not iterable）  
+
+
+## call,apply,bind
+
+1. 都可以改变this指向，函数.call()、函数.apply()、函数.bind()   
+2. call，apply可以立即执行，bind不会立即执行，bind返回的是一个函数，需要再加一个()执行    
+3. 参数不同，apply第二个参数是数组，call和bind有多个参数需要挨个写   
+
+```js
+var arr1=[1,2,3,45,6,78]
+console.log(Math.max.apply(null,arr1))
+
+```
