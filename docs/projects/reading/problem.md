@@ -200,3 +200,9 @@ mysql> flush privileges;
   </template>
 </el-table-column>
 ```
+
+## 打包
+
+1. 在vue.config.js将publicPath改为 `'.'`
+2. 运行npm run build:prod 命令生成dist文件夹
+3. 将dist文件夹里的文件放入 nginx 配置文件的同级目录下
