@@ -12,14 +12,14 @@ export default navbar([
         text: "基础",
         children: [
           { text: 'HTML&CSS', link: 'h5c3/CSS/css', },
-          { text: 'JavaScript', link: 'JavaScript/JS/js' },
+          { text: 'JavaScript', link: 'JavaScript/JS/js_advanced' },
         ]
       },
       {
         text: '框架',
         children: [
           { text: 'Vue', link: 'vue/vueNote/vuex' },
-          { text: 'React', link: 'react/React' },
+          { text: 'React', link: 'React/react_basis' },
         ]
       },
       {

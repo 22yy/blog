@@ -14,4 +14,8 @@ watch函数有两个参数，新值和旧值，watch中的函数不需要调用�
 - 异步：computed不支持异步，有异步操作时不发监听数据变化，watch支持异步操作    
 - 返回值：computed中的函数必须要用return返回，watch中的函数不是必须要用return.  
 - computed擅长处理的场景：一个数据受多个数据影响；watch擅长处理的场景：一个数据影响多个数据。  
-- computed第一次加载时就监听，watch默认第一次加载不监听，如果需要第一次加载做监听，添加immediate属性，值为true 
+- computed第一次加载时就监听，watch默认第一次加载不监听，如果需要第一次加载做监听，添加immediate属性，值为true   
+
+## vue双向绑定数据  
+
+>vue.js采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()劫持各个属性的setter,getter,在数据变动时发布消息给订阅者。触发相应的监听回调  

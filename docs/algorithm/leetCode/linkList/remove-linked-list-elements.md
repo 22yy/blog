@@ -63,3 +63,27 @@ var removeElements = function(head, val) {
   return head.val===val ? head.next : head;
 };
 ```
+
+## 18.删除链表中的节点
+
+[链接](https://leetcode.cn/problems/shan-chu-lian-biao-de-jie-dian-lcof/description/)  
+
+删除链表的节点
+1. 头节点,直接返回头结点下一个节点  
+2. 非头节点  
+
+用虚拟头结点，不必考虑是不是头结点的问题  
+```js
+var deleteNode = function(head, val) {
+  let dummy=new ListNode(0)
+  dummy.next=head;
+  let cur=dummy; //不能直接用dummy，要返回dummy.next,dummy不应该变
+  while(cur&&cur.next){
+     if(cur.next.val===val){
+         cur.next=cur.next.next
+     }
+     cur=cur.next
+  }
+  return dummy.next
+};
+```

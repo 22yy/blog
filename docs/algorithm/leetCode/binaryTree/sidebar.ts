@@ -50,5 +50,13 @@ module.exports=[
   {
     text:'合并二叉树',
     link:'binaryTree/合并二叉树13'
+  },
+  {
+    text:' 最大二叉树',
+    link:'binaryTree/最大二叉树14'
+  },
+  {
+    text:'二叉搜索树中的搜索',
+    link:'binaryTree/二叉搜索树中的搜索15'
   }
 ]

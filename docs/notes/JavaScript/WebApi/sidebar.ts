@@ -1,10 +1,8 @@
 module.exports = [{
   text: '基础介绍',
   link: 'WebApi/basic'
-}, {
-  text: '小案例',
-  link: 'WebApi/example'
-}, {
+},
+{
   text: '节点操作',
   link: 'WebApi/node'
 },

@@ -1,11 +1,11 @@
 module.exports=[
   {
-    text:"JS...",
-    link:'/notes/JavaScript/JS/js'
+    text:'JS基础知识',
+    link:'JS/js_advanced'
   },
   {
-    text:'JS高级',
-    link:'JS/js_advanced'
+    text: "JS...",
+    link: '/notes/JavaScript/JS/js'
   },
   {
     text:'JS算了',

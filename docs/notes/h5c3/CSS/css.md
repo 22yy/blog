@@ -232,10 +232,25 @@ text-overflow:ellipsis
 >3. 若非第一个元素浮动，则该元素之前的元素也需要浮动．否则会影响页面显示的结构。  
 
 >清除浮动的方式：
->1. 父级div定义height
->2. 最后一个浮动元素后加空div标签 并添加样式clear:both.
->3. 包含浮动元素的父标签添加样式overflow为hidden或auto.
->4. 父级div定义zoom
+>1. 父级div定义height  
+>2. 最后一个浮动元素后加空div标签 并添加样式clear:both.  
+>3. 包含浮动元素的父标签添加样式overflow为hidden或auto.  
+>4. 父级div定义zoom   
+>5. 伪元素 
+需要清除浮动时，在需要清楚浮动的元素添加clearfix类名，  
+```css
+.clearfix:after {
+  content:'';
+  display:'block';
+  height:0;
+  line-height:0;
+  visibility:hidden;
+  clear:both;
+}
+.clearfix {
+  zoom:1;
+}
+```
 
 
 ## z-index失效   

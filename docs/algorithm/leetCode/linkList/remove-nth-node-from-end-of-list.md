@@ -7,10 +7,6 @@
 
 进阶：你能尝试使用一趟扫描实现吗?   
 
-示例：  
-![删除](./images/remove_ex1.jpg)  
-
-
 输入：head = [1,2,3,4,5], n = 2 输出：[1,2,3,5] 示例 2：
 
 输入：head = [1], n = 1 输出：[] 示例 3：
@@ -86,5 +82,30 @@ var removeNthFromEnd = function(head, n) {
     let pre=stack.pop();
     pre.next=pre.next.next;
     return dummy.next;
+};
+```
+
+
+## 剑指22.链表中倒数第k个节点
+
+[链接](https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/description/)   
+
+用虚拟头结点,遍历到第 链表长度-k 个节点返回   
+
+```js
+var getKthFromEnd = function(head, k) {
+   let dummy = new ListNode(0);
+   dummy.next = head;
+   let length = 0;
+   while(head) {
+      length ++;
+      head = head.next;
+   }
+   let n = length - k;
+   while(n--) {
+     dummy = dummy.next;
+   }
+
+   return dummy.next;
 };
 ```
