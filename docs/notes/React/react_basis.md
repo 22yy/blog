@@ -43,10 +43,50 @@ class myComponents extends React.Component {
 >渲染组件标签  
 
 ```js
-ReactDOM.render(<MyComp />,  cotainerEle)   
+ReactDOM.render(<MyComp />,  containerEle)   
 ``` 
 
 >ReactDOM.render()渲染组件标签的基本流程   
 - React内部会创建组件实例对象/调用组件函数, 得到虚拟DOM对象  
 - 将虚拟DOM并解析为真实DOM  
-- 插入到指定的页面元素内部  
+- 插入到指定的页面元素内部    
+
+
+## 组件实例三大属性   
+
+### state
+
+>通过更新组件的state来更新对应的页面显示  
+
+```js
+class Like extends React.Component {
+   constructor (props) {
+      super(props)
+      // 初始化状态
+      this.state = {
+        isLikeMe: true
+      }
+      // 绑定this为组件对象,也可以不写这个，直接将change改为箭头函数
+      this.change = this.change.bind(this)
+    }
+
+     change() {
+      // 更新状态: this.setState()
+      // this.state.isLikeMe = !this.state.isLikeMe // 不能更新更新某个状态
+      console.log('change',this);
+      this.setState({
+        isLikeMe: !this.state.isLikeMe
+      })
+    }
+    render () {
+      console.log('render()',this)
+      const text = this.state.isLikeMe ? '你爱我' : '我爱你'
+      return <h2 onClick={this.change}>{text}</h2>
+    }
+  }
+  ReactDOM.render(<Like />, document.getElementById('example'))
+```
+
+### props  
+
+>每个组件对象都会有 props(properties 的简写)属性,组件标签的所有属性都保存在 props 中

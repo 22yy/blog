@@ -1,12 +1,14 @@
 # Vuex
 ![vuex](https://vuex.vuejs.org/vuex.png)
- ## 1. 概念
+ ## 概念
  在Vue中实现集中式状态（数据）管理的一个Vue插件，对vue应用中多个组件的共享状态进行集中式的管理（读/写），也是一种组件通信的方式，且适用于任意组件通信。
 
- ## 2.何时使用
- 多个组件需要共享数据时
+ >Vue实现了一个单向数据流， 全局拥有一个state存储状态，且必须通过Mutation提交修改信息修改state中的数据
 
- ## 3.搭建Vuex环境
+ ## 何时使用
+ >多个组件需要共享数据时
+
+ ## 搭建Vuex环境
  ```js
 1. 创建文件src/store/index.js
 //引入Vue核心库
@@ -45,7 +47,7 @@ new Vue({
 })
  ```
 
- ## 4.基本使用
+ ## 基本使用
  ```js
 1. 初始化数据、配置actions、配置mutations，操作文件store.js
 
@@ -90,7 +92,7 @@ export default new Vuex.Store({
 ```
 
 
- ## 5. getters的使用
+ ## getters的使用
 ```js
 1. 概念：当state中的数据需要经过加工后再使用时，可以使用getters加工。
 
@@ -110,7 +112,7 @@ export default new Vuex.Store({
 3. 组件中读取数据：$store.getters.bigSum
 ```
 
-## 6. 四个map方法的使用  
+## 四个map方法的使用  
 1. mapState方法：用于帮助我们映射state中的数据为计算属性   
 
 ```js
@@ -162,3 +164,11 @@ methods:{
 
 
 >mapActions与mapMutations使用时，若需要传递参数需要：在模板中绑定事件时传递好参数，否则参数是事件对象。
+
+
+## action & mutation
+
+- mutation 必须是同步函数，action可以包含异步操作  
+- action提交的时mutation，不是直接修改状态  
+- action第一个参数是context，是一个与store实例具有相同属性和方法的对象  
+- action通过store.dispatch触发，mutation通过store.commit触发  

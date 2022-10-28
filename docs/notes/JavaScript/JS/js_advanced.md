@@ -1,5 +1,67 @@
 # 基础知识
 
+## 类
+
+>与函数定义相似，定义类有两种方式，类声明和类表达式，不同的是，函数声明可提升，但类声明不能
+
+```js
+class Person {}
+
+const Animal = class {}
+```
+
+### 实例化  
+
+>使用new实例化类等于使用new调用其构造函数，唯一不同的是JavaScript解释器知道使用new和类意味着应该使用constructor函数进行实例化  
+
+用new调用类的构造函数会执行如下操作：  
+1. 内存中创建一个空对象  
+2. 新对象内部的`[[Prototype]]`指针被赋值为构造函数的prototype属性  
+3. 构造函数内部的this被赋值为新对象（this指向新对象）  
+4. 执行构造函数内部的代码（给新对象添加属性）  
+5. 如果构造函数返回非空对象，则返回这个对象；否则，返回刚创建的新对象  
+
+>调用类构造函数必须用new，普通构造函数如果不用new调用，就会以全局this（通常为window）作为内部对象
+
+### 实例，原型方法
+
+1. 实例
+
+>每次调用new都会执行构造函数，在函数内部创建为新创建的实例（this）添加'自有'属性，每个实例都对应一个唯一的成员对象，所有成员不会在原型上共享  
+
+2. 原型方法  
+
+>类定义语法把在类块中定义的方法作为原型方法
+
+- 在类块中定义的方法放在原型上
+- 以表达式方式，箭头函数定义的属性或者方法放在类实例上 
+
+```js
+class parent {
+      constructor(name) {
+        this.name = name;
+      }
+      a = 1;
+      change() {
+        console.log('change',this);
+      }
+      to = function() {
+        console.log('to', this);
+      }
+      add = ()=> {
+        console.log('jian', this);
+      }
+    }
+    let p = new parent('p');
+    console.log(p);
+    console.log(p.__proto__ === parent.prototype);
+    console.log(parent.prototype);
+    console.log(p.__proto__.constructor);
+```
+
+![class](./images/class2.png)
+
+
 ## 全局函数和全局变量  
 >全局变量  
 - Infinity: 正无穷大的数值

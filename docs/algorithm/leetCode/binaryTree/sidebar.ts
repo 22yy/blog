@@ -41,7 +41,7 @@ module.exports=[
   },
   {
     text: '树左下角的值',
-    link: 'binaryTree/树左下角的值11',
+    link: 'binaryTree/找树左下角的值11',
   },
   {
     text:'路径总和',
