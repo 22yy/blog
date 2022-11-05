@@ -448,6 +448,13 @@ const callback=entries=>{
 
 ```
 
+## async和await   
+
+- async本身是同步代码，除非遇到await   
+- await只能在async中使用
+- await是右结合，会执行它右边的代码，等右边的执行完在执行下面的代码  
+- await后面的所有代码都是异步的，属于微任务   
+
 
 ## Promise核心代码
 - 初始结构

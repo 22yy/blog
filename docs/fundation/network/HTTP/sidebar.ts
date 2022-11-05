@@ -21,5 +21,9 @@ module.exports=[{
   {
     text:'RSA',
     link:'HTTP/HTTP_RSA'
+  },
+  {
+    text:'ECDHE',
+    link:'HTTP/HTTP_ECDHE'
   }
 ]

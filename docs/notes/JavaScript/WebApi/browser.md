@@ -41,7 +41,7 @@ DOM事件流包括三个阶段：
 
 总方针是先同步再异步，异步中先微任务，在宏任务。  
 
-宏任务（macro-task)：整体`script`,`setTimeout`，`setInterval`，`setImmediate`,`IO`,`UI rendering`
+宏任务（macro-task)：整体`script`,`setTimeout`，`setInterval`，`setImmediate`,`IO`,`UI rendering`    
 微任务（micro-task）：`Promise.then/catch`，`process.nextTick`,`Object.observe`    
 
 **主线程从"任务队列"中读取执行事件，这个过程是循环不断的，这个机制被称为事件循环。**  

@@ -32,10 +32,6 @@ module.exports=[
     link:'binaryTree/平衡二叉树8',
   },
   {
-    text:'二叉树的所有路径',
-    link:'binaryTree/二叉树的所有路径9'
-  },
-  {
     text: '左叶子之和',
     link: 'binaryTree/左叶子之和10'
   },
@@ -45,7 +41,7 @@ module.exports=[
   },
   {
     text:'路径总和',
-    link:'binaryTree/路径总和12',
+    link:'binaryTree/路径12',
   },
   {
     text:'合并二叉树',
@@ -58,5 +54,17 @@ module.exports=[
   {
     text:'二叉搜索树中的搜索',
     link:'binaryTree/二叉搜索树中的搜索15'
-  }
+  },
+  {
+    text:'重建二叉树',
+    link:'binaryTree/重建二叉树16'
+  },
+  {
+    text:'验证二叉搜索树',
+    link: 'binaryTree/验证二叉搜索树17'
+  },
+  {
+    text:'二叉树的最近公共祖先',
+    link: 'binaryTree/最近公共祖先18',
+  },
 ]
