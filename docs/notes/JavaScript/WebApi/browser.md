@@ -219,6 +219,24 @@ setTimeout
   - 将需要多次重排的元素，position属性设为absolute或fixed，这样此元素就脱离了文档流，它的变化不会影响到其他元素。例如有动画效果的元素就最好设置为绝对定位。 
   - 由于display属性为none的元素不在渲染树中，对隐藏的元素操作不会引发其他元素的重排。如果要对一个元素进行复杂的操作时，可以先隐藏它，操作完成后再显示。这样只在隐藏和显示时触发2次重排   
 
+>load 和 DOMContentLoaded
+
+- load触发代表页面的DOM，CSS, JS,图片资源全部加载完毕    
+- DOMContentLoaded触发代表页面初始HTML被完全加载和解析，不需要等待CSS,JS，和图片加载    
+
+>js阻塞  
+
+- 加载js会阻塞dom解析，同时阻塞其他资源加载（css，图片资源等），直到js下载，解析，执行完毕后才开始并行下载其他资源    
+
+>css阻塞  
+
+- css加载不会阻塞dom解析   
+- css加载会阻塞dom树的渲染   
+- css加载会阻塞后面js文件的执行   
+
+1. DOM解析和CSS解析是两个并行的进程，所以css加载不会阻塞dom解析   
+2. Render Tree是依赖DOM Tree和CSSOM Tree的，所以必须等到CSSOM Tree构建完成即CSS加载完成后，才能开始渲染，所以CSS加载会阻塞DOM渲染    
+3. js可能会操作之前的Dom节点和CSS样式，样式表会在后面的js执行前先加载执行完，所以css会阻塞js文件执行   
 
 ## 浏览器缓存   
 

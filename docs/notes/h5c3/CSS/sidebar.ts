@@ -1,6 +1,6 @@
 module.exports=[
   {
-    text:"CSS小知识",
+    text:"CSS相关",
     link:'CSS/css'
   }
 ]

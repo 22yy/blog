@@ -1,145 +1,6 @@
 # JS 我不知道的...
 
 
-## new一个对象的过程
-
-1. 创建一个新对象:son
-2. 新对象会被执行[[prototype]]连接；
-   -  son.__proto__=Mother.prototype;
-3. 新对象和函数用的this会被绑起来
-   - Mother.call(son,'Da');
-4. 执行构造函数中的代码;
-   -  son.lastName;
-5. 如果函数没有返回值，就会自动返回这个新对象
-   - return this;
-
-```js
-function Mother(lastName){
-  this.lastName=lastName
-}
-var son=new Mother('Da')
-console.log(son.lastName);//Da
-
-function Mother(lastName){
-  this.lastName=lastName
-  return this;
-}
-
-var son=Mother('Da')
-console.log(son.lastName);//Da
-```
-
-```js
-//1.创建一个空对象
-// 2. 将空对象的原型指向构造函数的原型
-// 3. 空对象作为构造函数上下文（改变this指向）
-// 4. 对构造函数有返回值的处理判断：如果返回基本类型的数据则无影响，返回引用类型则new 无效
-function Fun(age,name) {
-  this.age = age;
-  this.name = name;
-}
-function create(fn,...args) {
-  var obj = {};
-  Object.setPrototypeOf(obj,fn.prototype);
-  var result = fn.apply(obj,args)
-  return result instanceof Object ? result : obj ;
-}
-console.log(create(Fun,18,'张三'));
-```
-
-## 防抖
->频繁触发一个事件，只触发最后一次，以最后一次为准  
-n秒后执行该事件，如果n秒内再次触发，则重新计时
-  - 改变页面大小的统计
-  - 电脑息屏时间，每动一次电脑重新计算时间
-  - 输入框连续输入的请求次数控制
-  - 防止表单多次提交
-
-  
-```js
-  const buttton=document.querySelector('input');
-  function payMoney(){
-    console.log('已剁');
-    cosole.log(this);
-  }
- //防抖函数
- function debounce(func,delay){
-   //在定义监听事件的时候同时定义timer，利用作用域链，所有的独立的执行函数都能访问到timer
-   //timer 只创建一次
-   let timer;
-   return function(){
-     //使用防抖函数后this的指向会变成window
-     let context=this;
-     //增加参数
-     let args=arguments;
-     //清除延时要在建立延时的前面
-     clearTimeout(timer)
-     timer=setTimeout(function(){
-          func.apply(context,arguments);
-       },delay)
-   }
- }
-
-  button.addEventListener('click',debounce(payMoney,1000))
-```  
-
-```js
-const debounce = function(func,wait){
-  let timeout;
-  return function () {
-    let args = arguments;
-    if(timeout) clearTimeout(timeout);
-    timeout=setTimeout (()=>{
-      func.apply(this,args)
-    },wait)
-  }
-} 
-```
-  
-
-## 节流
->频繁触发一个事件，只能每隔一段时间触发一次  
-n秒内只执行一次，如果n秒内再次触发，只有一次生效
-- 如果需要统计用户滚动屏幕的行为来做出相应的网页反应，需要设置节流，因为如果用户不断进行滚动，就会不断产生请求，响应也会不断增加，容易产生阻塞
-- 游戏里长按鼠标，但是动作都是每隔一段时间做一次
-
-
-
-```js
-//假设监听用户改变页面尺寸的事件，并且在改变尺寸时变换相应的背景颜色
- function coloring(){
-   let r=Math.floor(Math.random()*255);
-   let g=Math.floor(Math.random()*255);
-   let b=Math.floor(Math.random()*255);
-   document.body.style.background=`rgba(${r},${g},${b})`;
- }
-//创建节流函数
- function throrrle(func,delay){
-   let timer;
-   return function(){
-     let context=this;
-     let args=arguments;
-       //判断触发的事件是否在时间间隔内,
-       //即如果timer被赋值,也就是任务还在等待执行，暂时不改变timer的值
-       //如果timer没有被赋值，那就给他赋值执行任务
-     if(timer){
-       return;
-     }
-     //这个时间间隔是要给后面的任务来判断是否执行的标识，需要创建变量
-     timer=setTimeout(function(){
-       func.apply(context,args);
-       timer=null;//延迟执行后清空
-     },delay)
-   }
- }
-
- window.addEventListener('resize',throttle(coloring,2000))
-```
-
-
-
-
-
 ## splice和slice
 1. slice(start,end)
 - 从start开始截取到end但是不包括end
@@ -362,6 +223,152 @@ Object.is(+0, -0) //false
 const flattenDeep = (arr) => Array.isArray(arr) ? arr.reduce( (a,b) => [...a, ...flattenDeep(b)], []) : [arr]
 ```
 
+## async和await   
+
+- async本身是同步代码，除非遇到await   
+- await只能在async中使用
+- await是右结合，会执行它右边的代码，等右边的执行完在执行下面的代码  
+- await后面的所有代码都是异步的，属于微任务   
+
+
+## new一个对象的过程
+
+1. 创建一个新对象:son
+2. 新对象会被执行[[prototype]]连接；
+   -  son.__proto__=Mother.prototype;
+3. 新对象和函数用的this会被绑起来
+   - Mother.call(son,'Da');
+4. 执行构造函数中的代码;
+   -  son.lastName;
+5. 如果函数没有返回值，就会自动返回这个新对象
+   - return this;
+
+```js
+function Mother(lastName){
+  this.lastName=lastName
+}
+var son=new Mother('Da')
+console.log(son.lastName);//Da
+
+function Mother(lastName){
+  this.lastName=lastName
+  return this;
+}
+
+var son=Mother('Da')
+console.log(son.lastName);//Da
+```
+
+```js
+//1.创建一个空对象
+// 2. 将空对象的原型指向构造函数的原型
+// 3. 空对象作为构造函数上下文（改变this指向）
+// 4. 对构造函数有返回值的处理判断：如果返回基本类型的数据则无影响，返回引用类型则new 无效
+function Fun(age,name) {
+  this.age = age;
+  this.name = name;
+}
+function create(fn,...args) {
+  var obj = {};
+  Object.setPrototypeOf(obj,fn.prototype);
+  var result = fn.apply(obj,args)
+  return result instanceof Object ? result : obj ;
+}
+console.log(create(Fun,18,'张三'));
+```
+
+
+## 深浅拷贝   
+
+
+## 防抖
+>频繁触发一个事件，只触发最后一次，以最后一次为准  
+n秒后执行该事件，如果n秒内再次触发，则重新计时
+  - 改变页面大小的统计
+  - 电脑息屏时间，每动一次电脑重新计算时间
+  - 输入框连续输入的请求次数控制
+  - 防止表单多次提交
+
+  
+```js
+  const buttton=document.querySelector('input');
+  function payMoney(){
+    console.log('已剁');
+    cosole.log(this);
+  }
+ //防抖函数
+ function debounce(func,delay){
+   //在定义监听事件的时候同时定义timer，利用作用域链，所有的独立的执行函数都能访问到timer
+   //timer 只创建一次
+   let timer;
+   return function(){
+     //使用防抖函数后this的指向会变成window
+     let context=this;
+     //增加参数
+     let args=arguments;
+     //清除延时要在建立延时的前面
+     clearTimeout(timer)
+     timer=setTimeout(function(){
+          func.apply(context,arguments);
+       },delay)
+   }
+ }
+
+  button.addEventListener('click',debounce(payMoney,1000))
+```  
+
+```js
+const debounce = function(func,wait){
+  let timeout;
+  return function () {
+    let args = arguments;
+    if(timeout) clearTimeout(timeout);
+    timeout=setTimeout (()=>{
+      func.apply(this,args)
+    },wait)
+  }
+} 
+```
+  
+
+## 节流
+>频繁触发一个事件，只能每隔一段时间触发一次  
+n秒内只执行一次，如果n秒内再次触发，只有一次生效
+- 如果需要统计用户滚动屏幕的行为来做出相应的网页反应，需要设置节流，因为如果用户不断进行滚动，就会不断产生请求，响应也会不断增加，容易产生阻塞
+- 游戏里长按鼠标，但是动作都是每隔一段时间做一次
+
+
+
+```js
+//假设监听用户改变页面尺寸的事件，并且在改变尺寸时变换相应的背景颜色
+ function coloring(){
+   let r=Math.floor(Math.random()*255);
+   let g=Math.floor(Math.random()*255);
+   let b=Math.floor(Math.random()*255);
+   document.body.style.background=`rgba(${r},${g},${b})`;
+ }
+//创建节流函数
+ function throrrle(func,delay){
+   let timer;
+   return function(){
+     let context=this;
+     let args=arguments;
+       //判断触发的事件是否在时间间隔内,
+       //即如果timer被赋值,也就是任务还在等待执行，暂时不改变timer的值
+       //如果timer没有被赋值，那就给他赋值执行任务
+     if(timer){
+       return;
+     }
+     //这个时间间隔是要给后面的任务来判断是否执行的标识，需要创建变量
+     timer=setTimeout(function(){
+       func.apply(context,args);
+       timer=null;//延迟执行后清空
+     },delay)
+   }
+ }
+
+ window.addEventListener('resize',throttle(coloring,2000))
+```
 
 ## 图片的异步加载
 ```js
@@ -448,12 +455,7 @@ const callback=entries=>{
 
 ```
 
-## async和await   
 
-- async本身是同步代码，除非遇到await   
-- await只能在async中使用
-- await是右结合，会执行它右边的代码，等右边的执行完在执行下面的代码  
-- await后面的所有代码都是异步的，属于微任务   
 
 
 ## Promise核心代码

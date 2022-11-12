@@ -24,7 +24,7 @@ module.exports = [
 
 },
 {
-  text:'vue',
+  text:'vue2',
   collapsable: true,
   children:require('./vue2/sidebar')
 },

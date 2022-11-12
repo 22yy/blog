@@ -120,3 +120,39 @@ WebSocket协议为web应用程序客户端和服务端之间提供了一种全�
 - WebGL   
 一个JS API， 可以在任何兼容的web浏览器中渲染高性能的交互式2D和3D图像     
 
+
+## requestAnimationFrame()  
+
+>告诉浏览器执行一个动画，要求浏览器在下次重绘之前调用指定的回调函数更新动画 
+>默认返回一个ID，可使用cancelAnimationFrame()传入这个id停止requestAnimationFrame   
+
+```js
+window.requestAnimationFrame(callback);
+```
+
+`callback` : 回调函数会被传入DOMHighResTimeStamp(时间戳）参数，指示当前被requestAnimationFrame()排序的回调函数被触发的时间    
+
+
+>若你想在浏览器下次重绘之前**继续更新**下一帧动画，那么回调函数自身必须再次调用window.requestAnimationFrame()    
+
+
+## createDocumentFragment()
+
+>用来创建一个虚拟的节点对象,或者说用来创建文档碎片，可包含各种类型的节点  
+
+ DocumentFragment不属于文档树，当把它插入文档树时，插入的是它的子孙结点不是它本身，可暂时存放那些一次插入的节点    
+
+ 要添加多个DOM元素时可以先将这些元素添加到DocumentFragment()中，在统一添加到页面，可减少页面渲染dom的次数   
+
+ ```js
+ let fragment = document.createDocumentFragment();
+
+ for(let i = 0; i <= 100; i++) {
+  let elem = document.createElement('div');
+  elem.innnerHtml = i;
+  fragment.appendChild(elem);
+ }
+// 只进行了一次dom操作
+ document.body.appendChild(fragment);
+
+ ```

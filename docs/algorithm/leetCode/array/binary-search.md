@@ -186,4 +186,50 @@ var nextGreatestLetter = function(letters, target) {
  }
    return letters[left];
 };
+```  
+
+### 34. 在排序数组中查找元素的第一个和最后一个位置  
+
+[链接](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/description/)   
+
+```js
+var searchRange = function(nums, target) {
+   let low = leftRange(nums, target);
+   let high = rightRange(nums, target);
+   return [low, high]
+};
+// 寻找左边界
+const leftRange = function(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+    while(left <= right) {
+       let mid = Math.floor((right + left) /2);
+       if(nums[mid] >= target) {
+           right = mid - 1;
+       } else {
+           left = mid + 1;
+       }
+    }
+    // target大于数组最大值，left一直向右，下标越界
+    if(left === nums.length) return -1;
+    // 判断一下nums[left]是不是target
+    // target可能位于中间，不在数组中
+    return nums[left] === target ? left : -1;
+}
+const rightRange = function(nums, target) {
+   let left = 0;
+   let right = nums.length - 1;
+    while(left <= right) {
+       let mid = Math.floor((right + left) /2);
+       if(nums[mid] <= target) {
+           left = mid + 1;
+       } else {
+           right = mid - 1;
+       }
+   }
+//    target不在数组里,left指针越界
+   if(left - 1 < 0) return -1;
+//    因为在nums[mid] === target时left加了一
+   return nums[left - 1] === target ? left - 1 : - 1;
+}
 ```

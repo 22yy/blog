@@ -174,34 +174,3 @@ lsuperslide： <http://www.superslide2.com/>
 
 iscroll：<https://github.com/cubiq/iscroll>
 
-## 7.移动端常用开发框架
-
-### 7.1 移动端视频插件 zy.media.js
-
-框架，顾名思义就是一套架构，它会基于自身的特点向用户提供一套较为完整的解决方案。框架的控制权在框架本身，使用者要按照框架所规定的某种规范进行开发。
-
-插件一般是为了解决某个问题而专门存在，其功能单一，并且比较小。
-
-前端常用的框架有 Bootstrap、Vue、Angular、React 等。既能开发PC端，也能开发移动端
-
-前端常用的移动端插件有 swiper、superslide、iscroll等。
-
-框架： 大而全，一整套解决方案
-
-插件： 小而专一，某个功能的解决方案
-
-### 7.2 Bootstrap
-
-Bootstrap 是一个简洁、直观、强悍的前端开发框架，它让 web 开发更迅速、简单。
-
-它能开发PC端，也能开发移动端 
-
-Bootstrap JS插件使用步骤：
-
-1.引入相关js 文件
-
-2.复制HTML 结构
-
-3.修改对应样式
-
-4.修改相应JS 参数

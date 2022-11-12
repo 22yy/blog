@@ -1,7 +1,7 @@
 module.exports=[
   {
     text:'vue相关',
-    link:'vue2/vue基础知识'
+    link:'vue2/vue相关知识'
   },
   {
     text:"vue相关问题",

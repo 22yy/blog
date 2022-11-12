@@ -1,6 +1,6 @@
 module.exports=[
   {
-    text:'HTML小知识',
+    text:'HTML相关',
     link:'HTML/html'
   }
 ]

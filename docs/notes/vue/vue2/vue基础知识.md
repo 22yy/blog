@@ -1,25 +1,17 @@
 # vue 相关  
 
-## mixin(混入)   
 
-1. 功能：可以把多个组件共用的配置提取成一个混入对象   
+## Vue生命周期   
 
-2. 使用方式：  
+Vue生命周期就是Vue实例从创建到销毁的过程，主要分四个阶段，创建，挂载，更新，销毁，每个阶段包括两个钩子  
 
-```js
-第一步定义混合：
+beforeCreate和created之间`挂载data`和`绑定事件`，接下来`根据el挂载页面元素`，没有el就会结束生命周期直到手动挂载，然后解析tempalte生成虚拟dom，根据template渲染页面   
 
-{
-    data(){....},
-    methods:{....}
-    ....
-}
-第二步使用混入：
+beforeMount前虚拟dom已创建完成，mounted前将`vm.$el替代el`，mounted将虚拟dom转换为真实dom挂载到真实页面，`html页面渲染完成`     
 
-​ 全局混入：Vue.mixin(xxx)
-​ 局部混入：mixins:['xxx'] 
-```  
+数据发生变化时触发beforeUpdate和updated，最后主调用销毁函数或者组件自动销毁时beforeDestroy，手动撤销监听事件
 
+![life-cycle](./images/life-cycle.png)
 
 ## 全局事件总线（GlobalEventBus）  
 
@@ -165,4 +157,48 @@ v-leave-to：离开的终点
             }
         </script>
 ```
+## object.defineProperty()  
 
+```js
+object.defineProperty(obj, prop, descriptor)
+```
+
+三个参数：  
+- 属性所在对象  
+- 定义或修改的属性名  
+- 被定义或修改的属性描述符对象（对属性的操作）   
+
+描述符有两种主要形式：
+
+
+- 数据属性    
+   - writable : 属性值是否可修改，默认false
+   - enumeratable : 属性是否可被for...in循环访问到,默认false    
+   - configurable:  能否通过delete删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性，默认值为false
+   - value: 属性的数据值，默认undefined  
+
+
+- 访问器属性
+   - set  ： 读取属性时调用，默认undefined  
+   - get  ： 写入属性时调用，默认undefined  
+
+
+## mixin(混入)   
+
+1. 功能：可以把多个组件共用的配置提取成一个混入对象   
+
+2. 使用方式：  
+
+```js
+第一步定义混合：
+
+{
+    data(){....},
+    methods:{....}
+    ....
+}
+第二步使用混入：
+
+​ 全局混入：Vue.mixin(xxx)
+​ 局部混入：mixins:['xxx'] 
+```  
