@@ -625,7 +625,23 @@ let a = {
 let b = {...a}
 a.age = 2
 console.log(b.age) //1
+```  
+
+3. 手写实现  
+
+```js
+function copy(obj) {
+  const objCopy = {};
+
+  for (const key in obj) {
+    objCopy[key] = obj[key];
+  }
+
+  return objCopy;
+}
 ```
+
+
 #### 深拷贝
 
 - 对于基础数据类型，直接拷贝

@@ -18,7 +18,7 @@ export default navbar([
       {
         text: '框架',
         children: [
-          { text: 'Vue', link: 'vue/vueNote/vuex' },
+          { text: 'Vue', link: 'vue/vue2/vue_basis' },
           { text: 'React', link: 'React/react_basis' },
         ]
       },

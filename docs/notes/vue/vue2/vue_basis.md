@@ -156,7 +156,9 @@ v-leave-to：离开的终点
                 },
             }
         </script>
-```
+```  
+
+
 ## object.defineProperty()  
 
 ```js
@@ -181,24 +183,3 @@ object.defineProperty(obj, prop, descriptor)
 - 访问器属性
    - set  ： 读取属性时调用，默认undefined  
    - get  ： 写入属性时调用，默认undefined  
-
-
-## mixin(混入)   
-
-1. 功能：可以把多个组件共用的配置提取成一个混入对象   
-
-2. 使用方式：  
-
-```js
-第一步定义混合：
-
-{
-    data(){....},
-    methods:{....}
-    ....
-}
-第二步使用混入：
-
-​ 全局混入：Vue.mixin(xxx)
-​ 局部混入：mixins:['xxx'] 
-```  

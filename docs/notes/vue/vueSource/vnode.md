@@ -8,12 +8,12 @@
 JavaScript版本；
 - 如果要直接使用build出来的JavaScript版的snabbdom库，可以从npm上下载：
   ```js
-   npm i -D snabbdom
+   npm i -S snabbdom
   ```
 - snabbdom库是DOM库，当然不能在nodejs环境运行，所以我们需要搭建webpack和webpack-dev-server开发环境，好消息是不需要安装任何loader
 - 这里需要注意，必须安装最新版webpack@5，不能安装webpack@4，这是因为webpack4没有读取身份证中exports的能力，建议大家使用这样的版本：
  ```js
-   npm i -D webpack@5 webpack-cli@3 webpack-dev-server@
+   npm i -S webpack@5 webpack-cli@3 webpack-dev-server@
  ```
  - 参考webpack官网，书写好webpack.config.js文件
  - 跑通snabbdom官方git首页的demo程序，即证明调试环境已经搭建成功
@@ -65,18 +65,22 @@ Vue监视数据的原理：
      * 如需给后添加的属性做响应式，请使用如下API：
          - Vue.set(target，propertyName/index，value) 或 
          - vm.$set(target，propertyName/index，value)
+ 
+ >**特别注意**：Vue.set() 和 vm.$set() 不能给vm 或 vm的根数据对象 添加属性  
 
-  3. 如何监测数组中的数据？  
-      通过包裹数组更新元素的方法实现，本质就是做了两件事：
+ 
+![vueset](./images/set.png)     
 
-     * 调用原生对应的方法对数组进行更新。
+  1. 如何监测数组中的数据？  
+      通过包裹数组更新元素的方法实现，本质就是做了两件事：  
 
-     * 重新解析模板，进而更新页面
+     * 调用原生对应的方法对数组进行更新。  
+
+     * 重新解析模板，进而更新页面   
 
 
-  4. 在Vue修改数组中的某个元素一定要用如下方法：
-     * 使用这些API:push()、pop()、shift()、unshift()、splice()、sort()、reverse()
-     * Vue.set() 或 vm.$set()
+  2. 在Vue修改数组中的某个元素一定要用如下方法：    
+     * 使用这些API:push()、pop()、shift()、unshift()、splice()、sort()、reverse()    
+     * Vue.set() 或 vm.$set()    
 
-  **特别注意**：Vue.set() 和 vm.$set() 不能给vm 或 vm的根数据对象 添加属性！！！
 
