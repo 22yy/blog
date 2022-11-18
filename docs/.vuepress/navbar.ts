@@ -2,17 +2,16 @@ import { navbar } from "vuepress-theme-hope";
 
 export default navbar([
   // "/",
-  "/home",
+  // "/home",
   {
     text: "前端学习",
     prefix: '/notes/',
-    icon: 'edit',
     children: [
       {
         text: "基础",
         children: [
           { text: 'HTML&CSS', link: 'h5c3/CSS/css', },
-          { text: 'JavaScript', link: 'JavaScript/JS/js_advanced' },
+          { text: 'JavaScript', link: 'JavaScript/JS/js_basis' },
         ]
       },
       {
@@ -27,7 +26,7 @@ export default navbar([
         children: [
           { text: 'Node.js', link: 'nodejs/node_basic' },
           { text: 'TypeScript', link: 'typeScript/ts' },
-          { text: 'webpack', link: 'webpack/webpack' },
+          { text: 'webpack', link: 'webpack/basic/config' },
           { text:'Git', link: 'Git/git'},
           { text:'axios',link:'axios/axios'}
         ]
@@ -37,17 +36,14 @@ export default navbar([
 
   {
     text: "算法",
-    icon: "script",
     prefix: "/algorithm/",
     children: [
       {
         text: "leetCode",
-        icon: "edit",
         link: 'leetCode/array/twoSum'
       },
       {
         text: "数据结构",
-        icon: "edit",
         link: 'dataStructure/array'
       },
     ],
@@ -56,7 +52,6 @@ export default navbar([
 
   {
     text: '计算机基础',
-    icon: 'strong',
     children: [
       { text: '计算机网络', link: '/fundation/network/basic/OSI' },
       { text: '操作系统', link: '/fundation/opreting-system/进程管理/基础知识' }
@@ -65,7 +60,6 @@ export default navbar([
 
   {
     text: '项目',
-    icon: 'info',
     children: [
       { text: 'Vue2.5开发去哪网', link: '/projects/qunawang/problem' },
       { text:'电子书后台管理系统', link:'/projects/reading/problem'}
@@ -74,7 +68,6 @@ export default navbar([
 
   {
     text: 'Other',
-    icon: 'code',
     children: [
       { text: 'Python', link: '/other/python/快速入门' },
       { text: '部署', link:'/other/problem/部署'},

@@ -215,10 +215,46 @@ text-transform : full-width ;
 
 ## 多余文字省略号表示
 
+### 单行文本  
+
+文本在一行内显示，多余部分省略号表示   
+
 ```css
-overflow : hidden
-white-space:nowrap
-text-overflow:ellipsis
+/* 普通情况下用在块级元素的外层隐藏部分溢出元素 或者配合下面两个属性实现文本溢出省略*/
+overflow: hidden; 
+/* 设置文本不换行 */
+white-space:nowrap;
+/*有两个值 ellipsis表示当对象文本溢出时显示省略标记 clip表示当对象文本溢出部分裁切掉 */
+text-overflow:ellipsis;
+```  
+
+### 多行文本  
+
+伪元素 + 定位   
+
+通过伪元素绝对定位到行尾并遮住文字，在通过overflow:hidden 隐藏多余文字     
+
+```html
+<style>
+  .demo {
+    position: relative;
+    /*高度固定时设置行高 控制显示的行数 */
+    line-height: 20px; 
+    height: 40px;
+    overflow: hidden;
+  }
+  .demo::after {
+    content:'...';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 20px 0 10px;
+  }
+
+  <body>
+    <div class="demo">这是一段很长的文本</div>
+  </body>
+</style>
 ```
 
 ## 清除浮动
@@ -541,9 +577,9 @@ rel有几个属性：
 >由于浏览器底层运行机制，渲染引擎在解析HTML时遇到script标签引用文件是会暂停解析过程的，同时通过网络线程加载文件，文件加载后切换至js引擎执行相应代码，代码执行完成后再切换回渲染引擎继续渲染页面
 >可是首次渲染可能并不依赖这些js文件，这就延长了页面渲染的时间，所以为了减少这些时间损耗，可以通过script标签三个属性来实现  
 
-- async：立即请求文件，但不阻塞渲染引擎，而是文件加载完毕后再阻塞渲染引擎并执行js   
+- async：立即请求文件，但不阻塞渲染引擎，而是文件加载完毕后再阻塞渲染引擎并执行js，不会按照顺序执行，谁先加载完谁先执行    
 
-- defer：立即请求文件，但不阻塞渲染引擎，等解析完HTML再执行js  
+- defer：立即请求文件，但不阻塞渲染引擎，等解析完HTML再执行js，如国有多个设置了defer的script存在，会按照顺序执行，defer脚本会在文档渲染完毕后，DOMContentLoaded事件调用前执行    
 
 - H5标准的type="module"：让浏览器按照ES6标准将文件当模板解析，默认阻塞效果和defer一样，也可以配合async在请求完成后立即执行     
 
@@ -680,5 +716,22 @@ SEO就是搜索引擎优化，利用搜索引擎的搜索规则来提高网站�
 
 ```
 
-writing-mode :<https://developer.mozilla.org/zh-CN/docs/Web/CSS/writing-mode>
+writing-mode :<https://developer.mozilla.org/zh-CN/docs/Web/CSS/writing-mode>    
+
+
+## flex: 1
+
+默认值： 0 1 auto   
+
+flex:1 => flex : 1 1 auto     
+
+flex包含三个属性：   
+
+- flex-grow: 默认为0, 代表元素的放大比例，当一个容器有多余空间时，设置容器内某个元素的放大比例，该元素会对多余空间根据设置的比例分配大小，所有项目设置为1时，等分剩余空间     
+
+- flex-shrink: 默认为1，空间不足，该项目将缩小，所有项目设置为1时，缩小的比例相同    
+
+- flex-basis: 默认auto，即项目原本大小，定义在分配多余空间时，项目占据的主轴空间，浏览器根这个属性计算主轴是否有多余空间，想相当于设置初始值        
+
+
 

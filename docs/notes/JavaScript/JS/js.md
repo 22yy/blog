@@ -277,9 +277,25 @@ function create(fn,...args) {
 console.log(create(Fun,18,'张三'));
 ```
 
+## null和undefined  
 
-## 深浅拷贝   
+null表示‘无’的对象，Number(null) 为0   
 
+undefined表示‘无’的数值，Number(undefined) 为 NaN   
+
+null和undefined的区别:     
+- null在内存中的表示就是，栈中的变量没有指向堆中的内存对象    
+- undefined表示 “缺少值”，就是此处应该有一个值，但是还没有赋值。  
+
+```js
+10 + null //10
+
+10 + undefined //NaN 
+```
+
+## typeof null 
+
+JS底层以二进制表示数据，前三个数据表示数据类型，000代表对象，而null全为0，所以typeof null 为object，而null是基本数据类型    
 
 ## 防抖
 >频繁触发一个事件，只触发最后一次，以最后一次为准  
@@ -329,7 +345,10 @@ const debounce = function(func,wait){
   }
 } 
 ```
-  
+
+## 0.1 + 0.2 
+
+对浮点数进行计算时，将十进制转换为二进制，JS以64位双精度浮点数存储number类型，0.1,0.2转换成二进制时是无限循环小数，出现精度丢失    
 
 ## 节流
 >频繁触发一个事件，只能每隔一段时间触发一次  

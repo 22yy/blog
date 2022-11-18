@@ -9,7 +9,7 @@ export default defineUserConfig({
   base: "/",
   theme,
   plugins:[
-    searchPlugin
+    searchPlugin,
   ]
   
 });

@@ -23,5 +23,10 @@ module.exports = [{
   text:'二叉树',
   collapsable: true,
   children:require('./binaryTree/sidebar')
+},
+{
+  text:'其他',
+  collapsable: true,
+  children:require('./other/sidebar')                                                         
 }
 ]

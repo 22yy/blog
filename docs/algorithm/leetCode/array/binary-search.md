@@ -117,20 +117,20 @@ var peakIndexInMountainArray = function(arr) {
 ```   
 
 
-### 367.有效的完全平方数  
+## 367.有效的完全平方数  
 
 [题目链接](https://leetcode.cn/problems/valid-perfect-square/)   
 
 ```js
  let left=0;
-   let right=num;
-   while(left<=right){
-       const mid=left+Math.floor((right-left)/2);
-       const square=mid*mid;
-       if(square<num){
-           left=mid+1;
-       }else if(square>num){
-           right=mid-1;
+ let right=num;
+   while(left <= right){
+       const mid = left + Math.floor((right-left) / 2);
+       const square = mid * mid;
+       if (square < num) {
+           left = mid + 1;
+       } else if (square > num) {
+           right = mid - 1;
        }else{
            return true;
        }
@@ -138,7 +138,7 @@ var peakIndexInMountainArray = function(arr) {
    return false;
 ```
 
-### 69.x的平方根
+## 69.x的平方根
 
 [题目链接](https://leetcode.cn/problems/sqrtx/)
 
@@ -147,23 +147,23 @@ var mySqrt = function(x) {
    if (x == 0 || x == 1) {
         return x;
     }
- let l=0;
- let r=x;
+ let l = 0;
+ let r = x;
  let cur=0;
  while(l<=r){
      let mid=l+Math.floor((r-l)/2);
-     if(mid*mid>x){
-         r=mid-1;
-     }else{
-         cur=mid;
-         l=mid+1;
+     if (mid * mid > x) {
+         r = mid - 1;
+     } else {
+         cur = mid;
+         l = mid + 1;
      }
  }
  return cur;
 };
 ```
 
-### 744.寻找比目标字母大的最小字母
+## 744.寻找比目标字母大的最小字母
 
 [题目链接](https://leetcode.cn/problems/find-smallest-letter-greater-than-target/)  
 
@@ -188,7 +188,7 @@ var nextGreatestLetter = function(letters, target) {
 };
 ```  
 
-### 34. 在排序数组中查找元素的第一个和最后一个位置  
+## 34. 在排序数组中查找元素的第一个和最后一个位置  
 
 [链接](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/description/)   
 
