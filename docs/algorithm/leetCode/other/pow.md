@@ -1,7 +1,5 @@
 # Pow(x, n)
 
-## 50. Pow(x, n)
-
 [链接](https://leetcode.cn/problems/powx-n/description/)  
 
 - n<0 时, x^n^ = (1/x) ^-n^   

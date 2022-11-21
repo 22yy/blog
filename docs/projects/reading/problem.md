@@ -201,8 +201,19 @@ mysql> flush privileges;
 </el-table-column>
 ```
 
+
+## vue路由守卫next说明  
+
+[vue路由守卫next说明](https://blog.csdn.net/qq_41912398/article/details/109231418?spm=1001.2014.3001.5501)
+
+## 路由权限  
+
+[路由权限](https://panjiachen.github.io/vue-element-admin-site/zh/guide/essentials/permission.html#%E6%9D%83%E9%99%90%E9%AA%8C%E8%AF%81)
+
 ## 打包
 
 1. 在vue.config.js将publicPath改为 `'.'`
 2. 运行npm run build:prod 命令生成dist文件夹
-3. 将dist文件夹里的文件放入 nginx 配置文件的同级目录下
+3. 将dist文件夹里的文件放入 nginx 配置文件的同级目录下  
+
+

@@ -14,21 +14,21 @@
 
  ```js
  var minSubArrayLen = function(target, nums) {
-    let result=Infinity;//初始化为无穷大
-    let sum=0;
-    let sublength=0;//子序列长度
-    for(let i=0;i<nums.length;i++){
-        sum=0;//重新循环时要重置sum为0
-        for(let j=i;j<nums.length;j++){
-           sum+=nums[j];
-           if(sum>=target){          
-           sublength=j-i+1;//子序列长度
-           result=Math.min(result,sublength)
+    let result = Infinity;//初始化为无穷大
+    let sum = 0;
+    let sublength = 0;//子序列长度
+    for (let i = 0;i < nums.length; i++){
+        sum = 0;//重新循环时要重置sum为0
+        for(let j = i;j < nums.length; j++){
+           sum += nums[j];
+           if(sum >= target){          
+           sublength = j - i + 1;//子序列长度
+           result = Math.min(result,sublength)
            break;
            }
         }
     }
-    return result===Infinity ? 0 : result;
+    return result === Infinity ? 0 : result;
 };
  ```
 
@@ -43,18 +43,18 @@
 
  ```js
  var minSubArrayLen = function(target, nums) {
-   let result=Infinity;
-   let slow=0;
-   let sum=0;
-   let sublength=0;//滑动窗口的长度
-  for(let fast=0;fast<nums.length;fast++){
-    sum+=nums[fast];
-    while(sum>=target){//使用while，每次更新slow，不断进行比较
-        sublength=fast-slow+1;
-        result=Math.min(result,sublength);
-        sum-=nums[slow++];//不断变更起始位置
+   let result = Infinity;
+   let slow = 0;
+   let sum = 0;
+   let sublength = 0;//滑动窗口的长度
+  for(let fast = 0;fast < nums.length; fast++){
+    sum += nums[fast];
+    while(sum >= target){//使用while，每次更新slow，不断进行比较
+        sublength = fast-slow+1;
+        result = Math.min(result,sublength);
+        sum -= nums[slow++];//不断变更起始位置
     }
   }
-  return result===Infinity ? 0:result;
+  return result === Infinity ? 0:result;
 };
  ```

@@ -1,19 +1,5 @@
 # CSS  
 
-## 如何用纯CSS绘制三角形
-- 为正方形设置边框，把长和宽都设置为0，只有边框的厚度。上下左右隐藏三个边框只保留一个边框
-- 可以把各边都隐藏，为要显示的边框设置颜色
-
-```css
-div{
-  width:0;
-  height:0;
-  border: 250px solid transparent;
-  border-bottom-color: blue; 
-
-}
-```
-
 ## 水平居中元素
 
 ### 行内元素   
@@ -112,8 +98,81 @@ transform: translateX(-50%);
 
 
 
+## 如何用纯CSS绘制三角形
 
+- 为正方形设置边框，把长和宽都设置为0，只有边框的厚度。上下左右隐藏三个边框只保留一个边框
+- 可以把各边都隐藏，为要显示的边框设置颜色
 
+```css
+div{
+  width:0;
+  height:0;
+  border-style: solid;
+  border-width: 0 50px 50px; /*将隐藏部分的高度去掉*/
+  border-color: transparent transparent #d9534f
+}
+```
+
+><b>直角三角形</b>
+
+只设置两条边即可  
+
+```css
+div{
+  width:0;
+  height:0;
+  border-top: #d9534f solid;
+  border-right: pink solid;
+  border-width: 85px;
+}
+```
+
+![triangle2](./image/triangle2.png)
+
+><b>设置三条边 </b> 
+
+```css
+div{
+  width:0;
+  height:0;
+  border-top: #d9534f  solid;
+  border-right: pink  solid;
+  border-left: skyblue  solid;
+  border-width: 66px;
+  margin: auto;
+}
+```
+
+![triangle3](./image/triangle3.png)
+
+>要实现一个只有边框的空心三角形，可以利用伪类   
+
+伪类元泰定位参照对象的内容区城宽高都为0，则内容区域即可以理解成中心一点，所以伪元泰相对中心这点定位   
+
+将元素定位微调以及改变颜色
+
+```css
+.border {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 50px 50px;
+  border-color: transparent transparent #d9534f;
+  position: relative;
+}
+
+.border::after {
+  content:'';
+  border-style: solid;
+  border-width: 0 40px 40px;
+  border-color: transparent transparent #eee;
+  position: absolute;
+  top: 6px;
+  left: -40px;
+}
+```
+
+![trai](./image/triangle.png)
 
 
 ## 解决img 5px间距的问题
@@ -392,11 +451,11 @@ div { position: sticky; top: 20px; }
 
 ## 几种隐藏的区别
 
-1. `visibility:hidden`：隐藏元素，会继续在文档流中占位，所以触发重绘，隐藏后不能触发点击事件
+1. `visibility:hidden`：隐藏元素，不会让元素从渲染树上消失，会继续在文档流中占位，所以触发重绘，隐藏后不能触发点击事件，继承属性，子孙结点消失由于继承了hidden，为子孙结点设置`visibility:visible`可以让子孙结点显示     
 
-2. `display:none`：隐藏元素，会从页面中删除掉，所以会触发重排和重绘
+2. `display:none`：隐藏元素，会让元素从渲染树上消失，会从页面中删除掉，所以会触发重排和重绘,非继承属性，修改子孙节点无法显示  
 
-3. `opacity:0`：透明，会继续在文档流中占位，所以触发重绘。由是是作用于元素自身，所以子元素会继承，全部变透明，透明后可以触发点击事件
+3. `opacity:0`：透明，不会从渲染树消失 ,会继续在文档流中占位，所以触发重绘。由是是作用于元素自身，所以子元素会继承，全部变透明，透明后可以触发点击事件，  
 
 4. `rgba(0,0,0,0)`：透明，会继续在文档流中占位，所以触发重绘。由于只作用于颜色或背景色，所以子元素不会继承，透明后可以触发点击事件
 
@@ -444,40 +503,12 @@ DOM发生改变的时候触发重排，使DOM重新排列
 
 发生外观的变化，没有改变布局    
 
- 
-## 网页布局方式   
-1. 静态布局：传统web设计，网页上所有元素尺寸一律使用px作为单位;   
-优点：编写最简单，没有兼容性问题  
-缺点：不能根据屏幕尺寸做出不同表现  
-
-2. 流式布局：网页中的主要划分区域的尺寸使用百分比（搭配min-*、max-*属性使用）   
-3. 弹性布局：flex（上手快，主流）   
-4. 响应式布局：媒体查询＋流式布局    
-特点：每个屏幕分辨率下会有一个布局样式，即元素位置和大小都会变   
-优点：适应pc端和移动端，有耐心的话，效果完美     
-缺点：媒体查询是有限的，只能适应主流的宽高；要匹配足够多的屏幕大小，工作量较大，设计图要多个版本   
-5. 浮动布局：float: left / right   
-6. 定位布局：position：absolute / relative / fixed / static/sticky     
-
-
-## 媒体查询   
-
->通过媒体查询可以为不同大小尺寸的设备使用不同的 CSS，达到自适应的目的。可以通过 html 或者 CSS 设置  
-
-```html
-<meta name='viewport' content="width=device-width, initial-scale=1. maximum-scale=1,user-scalable=no">
-<link ref="stylesheet" type="text/css" href="xxx.css" media="only screen and(max-device-width: 480px)">
-
-
-@media only screen and(max-device-width:480px){ ... }
-```  
-
 
 ## 白屏  
 1. 问题排查：  
 (1）检查ur1地址是否拼写错误  
 (2） 查看控制台输出，是否报错  
-(3） 查看don结构，是否正常加载  
+(3） 查看dom构，是否正常加载  
 (4）查看network资源加载情况  
 (5）查看路由是否路径错误   
 
@@ -491,12 +522,6 @@ DOM发生改变的时候触发重排，使DOM重新排列
 (7）图片懒加载      
 
 
-## 常用单位  
-`px`：绝对长度单位  
-`em`：相对长度单位，相对父元素  
-`rem`：相对长度单位，相对根元素  
-`vw`：视口宽度  
-`vh`：视口高度   
 
 
 ## BFC 
@@ -582,7 +607,6 @@ rel有几个属性：
 - defer：立即请求文件，但不阻塞渲染引擎，等解析完HTML再执行js，如国有多个设置了defer的script存在，会按照顺序执行，defer脚本会在文档渲染完毕后，DOMContentLoaded事件调用前执行    
 
 - H5标准的type="module"：让浏览器按照ES6标准将文件当模板解析，默认阻塞效果和defer一样，也可以配合async在请求完成后立即执行     
-
 
 ## href和src的区别   
 
@@ -716,10 +740,37 @@ SEO就是搜索引擎优化，利用搜索引擎的搜索规则来提高网站�
 
 ```
 
-writing-mode :<https://developer.mozilla.org/zh-CN/docs/Web/CSS/writing-mode>    
+writing-mode :<https://developer.mozilla.org/zh-CN/docs/Web/CSS/writing-mode>         
 
 
-## flex: 1
+## input
+
+```html
+禁止input展示历史记录
+<input autocomplete="off" type="text">
+
+触发默认拍照功能
+
+user:前置
+environment：后置
+camera：相机
+camcoder：摄像机
+microphone：录音
+
+<input type="flie" capture="camera" accept="image/*">
+
+上传文件时选择多张
+<input type="file" name="file" mutiple>
+``` 
+
+## label 
+
+label标签定义表单控件间的关系，用户选择改标签时，浏览器自动将焦点转到与改标签相关的表单控件上    
+
+
+## flex布局  
+
+### flex: 1
 
 默认值： 0 1 auto   
 
@@ -731,7 +782,4 @@ flex包含三个属性：
 
 - flex-shrink: 默认为1，空间不足，该项目将缩小，所有项目设置为1时，缩小的比例相同    
 
-- flex-basis: 默认auto，即项目原本大小，定义在分配多余空间时，项目占据的主轴空间，浏览器根这个属性计算主轴是否有多余空间，想相当于设置初始值        
-
-
-
+- flex-basis: 默认auto，即项目原本大小，定义在分配多余空间时，项目占据的主轴空间，浏览器根这个属性计算主轴是否有多余空间，想相当于设置初始值   

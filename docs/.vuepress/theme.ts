@@ -105,5 +105,8 @@ export default hopeTheme({
     // 使用PDF组件
     components:["PDF","Badge"],
   },
+
+  // 是否显示贡献者
+  contributors: false
   
 });

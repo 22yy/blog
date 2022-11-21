@@ -35,9 +35,9 @@
 
 1. 传递参数  
 
-```
+```js
 <!-- 跳转并携带query参数，to的字符串写法 -->
-<router-link :to="/home/message/detail?id=666&title=你好">跳转</router-link>
+<router-link :to="/home/message/detail?id=666&title=你好">跳转 </router-link>
 				
 <!-- 跳转并携带query参数，to的对象写法 -->
 <router-link 
@@ -45,7 +45,7 @@
 		path:'/home/message/detail',
 		query:{
 		   id:666,
-            title:'你好'
+       title:'你好'
 		}
 	}"
 >跳转</router-link>
@@ -96,7 +96,7 @@ $route.query.title
 		name:'xiangqing',
 		params:{
 		   id:666,
-            title:'你好'
+       title:'你好'
 		}
 	}"
 >跳转</router-link>
@@ -188,7 +188,26 @@ this.$router.go() //可前进也可后退
 
 2. 分类：全局守卫、独享守卫、组件内守卫  
 
-- 全局守卫:  
+- <b>全局守卫</b>:   
+
+`beforeEach(to, from, next)`:  
+
+to :即将要进入的目标路由对象   
+
+from:当前正要离开的路由对象    
+
+next:路由控制参数:  
+
+next():如果一切正常，则调用这个方法进入下一个钩子   
+
+next(false):取消导航(即路由不发生改变)   
+
+next('/login'):当前导航被中断，然后进行一个新的导航    
+
+next(error):如果一个Error实例，则导航会被终止且该错误会被传递给 router.onError ()   
+
+`afterEach (to，from)` 路由改变后的钩子 常用自动让页面返回最顶端    
+用法相似，少了next参数
 
 ```js
 //全局前置守卫：初始化时执行、每次路由切换前执行
@@ -217,34 +236,103 @@ router.afterEach((to,from)=>{
 })
 ```
 
-- 独享守卫:  
+- <b>独享守卫</b> 
 
 ```js
-beforeEnter(to,from,next){
- console.log('beforeEnter',to,from)
- if(to.meta.isAuth){ //判断当前路由是否需要进行权限控制
-  if(localStorage.getItem('school') === 'atguigu'){
-   next()
-  }else{
-   alert('暂无权限查看')
-   // next({name:'guanyu'})
+const router = new VueRouter({
+  routes:[
+    {
+      path:'/foo',
+      component:Foo,
+      beforeEnter: (to,from,next) => {
+        console.log('beforeEnter',to,from)
+        if (to.meta.isAuth) { //判断当前路由是否需要进行权限控制
+        if (localStorage.getItem('school') === 'atguigu') {
+           next()
+         } else {
+           alert('暂无权限查看')
+          // next({name:'guanyu'})
+         }
+        } else {
+          next()
+        }
+     }
+     beforeEnter:(route) => {
+
+     }
+    }
+  ]
+})
+
+```  
+
+- <b>组件内守卫</b>：  
+
+1. `beforeRouteEnter (to, form, next)`  
+
+- 该组件的对应路由被 comfirm 前调用。   
+
+- 此时实例还没被创建，<b>所以不能获取实例(this)</b>
+ 
+2. `beforeRouteUpdate (to, from, next)`
+
+- 当前路由改变，但改组件被复用时候调用  
+
+- 该函数内可以访问组件实例(this)   
+
+3. `beforeRouteLeave (to, from, next) `  
+
+- 当导航离开组件的对应路由时调用。   
+
+- 该函数内可以访问获取组件实例(this)   
+
+```js
+const Foo = {
+  template: `...`,
+  beforeRouteEnter (to, from, next) {
+    在渲染该组件的对应路由被 confirm 前调用 
+    不!能!获取组件实例 `this`
+    因为当钩子执行前，组件实例还没被创建
+  },
+  beforeRouteUpdate (to, from, next) {
+  在当前路由改变，但是该组件被复用时调用
+  举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的 时候，
+  由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调 用。
+  可以访问组件实例 `this` },
+  beforeRouteLeave (to, from, next) { 
+  导航离开该组件的对应路由时调用
+  可以访问组件实例 `this`
+} }
+
+```
+- 路由监测变化 监听到路由对象发生变化，从而对路由变化做出响应
+
+```js
+const user = {
+    template:'<div></div>',
+    watch: {
+       '$route' (to,from){ // 对路由做出响应
+       // to , from 分别表示从哪跳转到哪，都是一个对象
+       // to.path ( 表示的是要跳转到的路由的地址 eg: /home );
+      } 
   }
- }else{
-  next()
- }
 }
-```  
 
-- 组件内守卫：  
+// 多了一个watch，这会带来依赖追踪的内存开销， // 修改
+const user = {
+    template:'<div></div>',
+    watch: {
+      '$route.query.id' { 
+        // 请求个人描述
+      },
 
-```js
-//进入守卫：通过路由规则，进入该组件时被调用
-beforeRouteEnter (to, from, next) {
-},
-//离开守卫：通过路由规则，离开该组件时被调用
-beforeRouteLeave (to, from, next) {
+      '$route.query.page' {
+        //请求列表
+    }
+
+  }
 }
-```  
+```
 
 
 ## 路由器的两种工作模式  

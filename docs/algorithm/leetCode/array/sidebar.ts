@@ -23,6 +23,10 @@ module.exports = [{
         link: 'array/minimum-size-subarray-sum'
     },
     {
+        text:'数组中出现次数超过一半的数字',
+        link:'array/多数元素'
+    },
+    {
         text: '螺旋矩阵 II',
         link: 'array/spiral-matrix-ii'
     }
