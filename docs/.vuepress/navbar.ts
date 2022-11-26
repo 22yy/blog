@@ -25,12 +25,20 @@ export default navbar([
         text: '其他',
         children: [
           { text: 'Node.js', link: 'nodejs/node_basic' },
-          { text: 'TypeScript', link: 'typeScript/ts' },
+          // { text: 'TypeScript', link: 'typeScript/ts' },
           { text: 'webpack', link: 'webpack/basic/config' },
           { text:'Git', link: 'Git/git'},
           { text:'axios',link:'axios/axios'}
         ]
       }
+    ]
+  },
+
+  {
+    text: '计算机基础',
+    children: [
+      { text: '计算机网络', link: '/fundation/network/basic/OSI' },
+      { text: '操作系统', link: '/fundation/opreting-system/进程管理/基础知识' }
     ]
   },
 
@@ -47,15 +55,6 @@ export default navbar([
         link: 'dataStructure/array'
       },
     ],
-  },
-
-
-  {
-    text: '计算机基础',
-    children: [
-      { text: '计算机网络', link: '/fundation/network/basic/OSI' },
-      { text: '操作系统', link: '/fundation/opreting-system/进程管理/基础知识' }
-    ]
   },
 
   {

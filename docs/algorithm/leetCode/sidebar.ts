@@ -25,6 +25,11 @@ module.exports = [{
   children:require('./binaryTree/sidebar')
 },
 {
+  text:'动态规划',
+  collapsable: true,
+  children: require('./dynamic/sidebar')
+},
+{
   text:'其他',
   collapsable: true,
   children:require('./other/sidebar')                                                         
