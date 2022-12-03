@@ -11,7 +11,8 @@ module.exports = [
     text:'子序列系列',
     collapsable: true,
     children:[
-       'dynamic/最大子数组和'
+       'dynamic/最大子数组和',
+       'dynamic/最长重复子数组'
     ]
   }
 ]

@@ -4,11 +4,12 @@ module.exports=[
     link:'JS/js_basis'
   },
   {
+    text:'JS进阶',
+    link:'JS、js_advanced'
+  },
+  {
     text: "JS...",
     link: 'JS/js'
   },
-  {
-    text:'JS算了',
-    link:'JS/js_everyday'
-  }
+ 
 ]

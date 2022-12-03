@@ -28,9 +28,28 @@
 
 ### http模块  
 
+>用http模块写一个get接口
+
 ```js
 const http = require('http')
+const app = http.createSever((req,res) => {
+	if (req.url === '/getInfo' && res.method === 'GET') {
+		res.end('get请求成功');
+	} else {
+		res.end('404')
+	}
+})
+// 监听8083端口
+app.listen(8083, () => {
+  console.log(8083);
+});
 ```
+
+- req.method 可以判断请求的类型    
+- res.end()的参数只能是字符串（或者是buffer），而不能是对象     
+
+
+
 ## 关闭进程
 1. 查看端口占用情况   
 ```js
