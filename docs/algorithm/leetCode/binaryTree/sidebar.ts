@@ -85,15 +85,8 @@ module.exports=[
     text: '二叉树搜索树',
     collapsable: true,
     children: [
-      {
-        text: '二叉搜索树中的搜索',
-        link: 'binaryTree/二叉搜索树中的搜索15'
-      },
-
-      {
-        text: '验证二叉搜索树',
-        link: 'binaryTree/验证二叉搜索树17'
-      },
+       'binaryTree/二叉搜索树中的搜索15',
+       'binaryTree/验证二叉搜索树17'
     ]
   },
  

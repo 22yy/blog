@@ -78,7 +78,7 @@ typeof 和 instanceof的缺点
 
 
 知识点：
->Object.prototype.toString()方法，会返回一个形如"[Object xxx]"的字符串
+>Object.prototype.toString()方法，会返回一个形如"[object xxx]"的字符串
 
 ```js
 [1,2,3].toString() //1,2,3

@@ -5,7 +5,7 @@ module.exports=[
   },
   {
     text:'JS进阶',
-    link:'JS、js_advanced'
+    link:'JS/js_advanced'
   },
   {
     text: "JS...",
