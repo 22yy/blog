@@ -5,15 +5,6 @@ import sidebar from "./sidebar";
 export default hopeTheme({
 
   pure: true,
-  //文章显示的默认作者
-  // author: {
-  //   name: "wish",
-  //   url: "",
-  // },
-
-  // iconAssets: "iconfont",
-
-  // logo: "/logo.svg",
 
   //文档在仓库中的目录
   docsDir: "myblog/docs",
@@ -56,28 +47,8 @@ export default hopeTheme({
   // },
 
   //
-  pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
+  pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime", "PageView"],
   
-  // //博主信息
-  // blog: {
-  //   //头像
-  //   avatar:'/logo.png',
-  //   //头像被剪裁成圆形
-  //   roundAvatar: true,
-  //   //描述
-  //   description: "一天睡25个小时",
-  //   //介绍页地址
-  //   intro: "/intro.html",
-  //   medias: {
-  //     Email: "https://example.com",
-  //     Gitee: "https://example.com",
-  //     GitHub: "https://example.com",
-  //     Pinterest: "https://example.com",
-  //     QQ: "https://example.com",
-  //     Wechat: "https://example.com",
-  //   },
-    
-  // },
   
   plugins: {
     blog: {

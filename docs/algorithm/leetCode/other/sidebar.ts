@@ -16,5 +16,13 @@ module.exports = [
     text:'排序',
     collapsable: true,
     children:[]
+  },
+  {
+    text:'栈与队列',
+    collapsable: true,
+    children:[
+      'otherr/删除字符串相邻重复项',
+      'other/逆波兰表达式求值'
+    ]
   }
 ]

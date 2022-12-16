@@ -38,7 +38,7 @@ export default navbar([
     text: '计算机基础',
     children: [
       { text: '计算机网络', link: '/fundation/network/basic/OSI' },
-      { text: '操作系统', link: '/fundation/opreting-system/进程管理/基础知识' }
+      // { text: '操作系统', link: '/fundation/opreting-system/进程管理/基础知识' }
     ]
   },
 
@@ -46,10 +46,10 @@ export default navbar([
     text: "算法",
     prefix: "/algorithm/",
     children: [
-      {
-        text: "leetCode",
-        link: 'leetCode/array/twoSum'
-      },
+      // {
+      //   text: "leetCode",
+      //   link: 'leetCode/array/twoSum'
+      // },
       {
         text: "数据结构",
         link: 'dataStructure/array'
@@ -61,16 +61,16 @@ export default navbar([
     text: '项目',
     children: [
       { text: 'Vue2.5开发去哪网', link: '/projects/qunawang/problem' },
-      { text:'电子书后台管理系统', link:'/projects/reading/problem'}
+      { text:'电子书后台管理系统', link:'/projects/reading/gist'}
     ]
   },
 
   {
     text: 'Other',
     children: [
-      { text: 'Python', link: '/other/python/快速入门' },
+      // { text: 'Python', link: '/other/python/快速入门' },
       { text: '部署', link:'/other/problem/部署'},
-      { text:'Javaweb',link:'/other/Javaweb/maven'}
+      // { text:'Javaweb',link:'/other/Javaweb/maven'}
     ]
   },
   {

@@ -12,7 +12,7 @@ bgImage: false
 # tagline: 闲着也是闲着
 actions:
   - text: 开始阅读 💡
-    link: /notes/h5c3/CSS/css.html
+    link: /notes/JavaScript/JS/js_basis
     type: primary
 
 footer: 天天开心
