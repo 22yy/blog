@@ -5,7 +5,11 @@ module.exports=[
   },
   {
     text:'JS进阶',
-    link:'JS/js_advanced'
+    collapsable: true,
+    children:[
+      'JS/js_advanced',
+      'JS/function'
+    ]
   },
   {
     text: "JS...",

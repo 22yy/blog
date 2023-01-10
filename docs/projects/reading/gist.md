@@ -259,4 +259,35 @@ function hasPermission(roles, route) {
     return true
   }
 }
+``` 
+
+## 使用 xml2js 解析 xml 数据格式  
+
+npm 安装  
+
+```js
+npm install xml2js
 ```
+xml2js 会将 xml 字符串传入 xml2js 中导出的 parseString 方法中处理   
+
+parseString 方法接收两个参数  一个是待处理的 xml 字符串，还有一个是回调函数   
+
+解析后会执行回调函数返回两个参数 err 和 result     
+
+err 是解析失败后的错误对象，result 则是解析成功后返回 xml 对应的 json 对象    
+
+ `xml2js.parseString` 可以传第三个参数   
+
+ ```js
+var parseString = require('xml2js').parseString;
+var xml = "<root>Hello xml2js!</root>"
+parseString(xml, {trim: true}, function (err, result) {
+    console.dir(result);
+});
+``` 
+
+- trim : 默认false ,在文本节点的开头和结尾处修剪空格     
+- explicitArray: 默认true, 如果为true，则始终将子节点放入数组中；否则，仅当存在多个数组时才创建一个数组。   
+- ignoreAttrs: 默认false，忽略所有xml属性，仅创建文本节点     
+
+[链接](https://blog.csdn.net/hsany330/article/details/115168342)    

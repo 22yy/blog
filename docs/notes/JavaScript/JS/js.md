@@ -297,6 +297,73 @@ null和undefined的区别:
 
 JS底层以二进制表示数据，前三个数据表示数据类型，000代表对象，而null全为0，所以typeof null 为object，而null是基本数据类型    
 
+## 0/0
+
+JS中，0可以做分母，0/0为NaN，不会抛出异常  
+
+## sort  
+
+sort()使用原地算法对数组进行排序，如果不传入参数，则数组按照元素的字典序升序排列（在此过程中含有隐式转换，数组的每个元素都会调用一次 toString() 方法转换为字符串）   
+
+所谓的按字典序排列，就是对两个字符串的第一个不同字符的 Unicode 编码值进行比较并排序。    
+
+如果传入的是排序函数，形式为 sort((a, b) => {})，a 和 b 为每次比较的值，a 和 b 的顺序根据排序函数的返回值决定    
+
+- 若返回的是一个正数（不包括 0 ），则 a 应排在 b 的后面；    
+- 若返回的是 0 ，则 a 和 b 的相对位置不变；   
+- 若返回的是一个负数，则 a 应排在 b 的前面；   
+
+```js
+// 升序
+arr.sort(function(a, b) {
+  return a - b
+})
+
+// 降序
+arr.sort((a, b) => b - a);
+```
+
+```js
+var array = [-1, 1, 3, 4 ,6];
+console.log(arr.sort((a, b) => Math.abs(a - 3) - Math.abs(b - 3)));  //[3, 4, 1, 6, -1, 10]
+
+数值减3的绝对值[4, 2, 0, 1, 3, 7]作为参数决定顺序
+根据绝对值减3大小排列[0, 1, 2, 3, 4, 7] 对应原数组[3, 4, 1, 6, -1, 10]
+
+
+```
+
+## 怎么判断一个数据是不是NaN  
+
+NaN不是一个数字且数字类型为number，而且不等于自身   
+
+1. 可直接采用内置方法isNaN   
+
+```js
+function isNaN(n) {
+  if (n !== n) {
+    return true;
+  } else {
+    return false;
+  }
+}
+```
+2. 利用NaN是唯一一个不等于任何自身的特点  
+
+```js
+var a = NaN;
+a == a; //false
+```
+
+3. Object.is() 方法   
+
+```js
+console.log(Object.is('a', NaN)); //false
+console.log(Object.is(1, NaN)); //false
+console.log(Object.is(NaN, NaN)); //true
+```
+
+
 ## 防抖
 
 >频繁触发一个事件，只触发最后一次，以最后一次为准  
@@ -442,10 +509,10 @@ window.addEventListener('scroll',(e)=>{
  //判断图片是否出现在可视区域
  images.forEach(image=>{
    //获取每张图片到顶部的距离
-   const imageTop=image.getBoundingClientRect().top;
+   const imageTop = image.getBoundingClientRect().top;
    //判断距离是否小于窗口显示区的高度
-   if(imageTop<window.innerHeight){
-     const data_src=image.getAttribute('data-src');
+   if (imageTop < window.innerHeight){
+     const data_src = image.getAttribute('data-src');
      image.setAttribute('src',data_src);
    }
  })
@@ -463,7 +530,7 @@ images.forEach(image=>{
   observer.observe(image)
 })
 
-const callback=entries=>{
+const callback = entries=>{
   console.log(entries);//是一个数组
   entries.forEach(entry=>{
     //判断是否到达图片可视区域

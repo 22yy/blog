@@ -116,7 +116,34 @@ class parent {
     console.log(p.__proto__.constructor);
 ```
 
-![class](./images/class2.png)
+![class](./images/class2.png)   
+
+
+### 类的访问器方法和静态方法
+
+对象可以添加setter和getter函数的，类也可以    
+
+```js
+class Person {
+  constructor(name) {
+    this._name = name;
+  }
+
+  set name(newName) {
+    console.log("调用name的setter方法");
+    this._name = newName;
+  }
+
+  get name() {
+    console.log("调用name的getter方法");
+    return this._name;
+  }
+
+  static create() {
+    return new Person(Math.floor(Math.random() * 100))
+  }
+}
+```
 
 
 ## 全局函数和全局变量  
@@ -536,7 +563,7 @@ fn1();
   function Parent(){}
   Parent.prototype.test = function(){};
   function Child(){}
-  Child.prototype = new Parent(); // 子类型的原型指向父类型实例
+  Child.prototype = new Parent(); // 子类型的原型指向父类实例
   Child.prototype.constructor = Child
   var child = new Child(); //有test()
   ```
@@ -561,7 +588,8 @@ fn1();
 3. 组合  
 
 - 可以继承父类原型上的属性，可以传参，可复用   
-- 每个新实例引入的构造函数属性是私有的  
+- 每个新实例引入的构造函数属性是私有的   
+- 调用了两次父类构造函数   
 
 
   ```js
@@ -597,6 +625,8 @@ Child.prototype.constructor = Child
 ```js
 class Child extends Parent {}
 ```
+
+
 ### 深浅拷贝
 
 ```js
@@ -704,14 +734,7 @@ console.log(b.jobs.first) // PE
 6. 显示后端：绘制基础元件，如组合框与窗口  
 7. 数据存储：浏览器把需要的数据存到硬盘上，如书签，工具栏设置，Cookie，安全证书，缓存等   
 
-### js线程
-* js是单线程执行的(回调函数也是在主线程)
-* H5提出了实现多线程的方案: Web Workers
-* 只能是主线程更新界面
 
-### 定时器问题:
-* 定时器并不真正完全定时
-* 如果在主线程执行了一个长时间的操作, 可能导致延时才处理
     
 ### 事件处理机制
 * 代码分类
