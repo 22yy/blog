@@ -8,7 +8,10 @@ module.exports=[
     collapsable: true,
     children:[
       'JS/js_advanced',
-      'JS/function'
+      'JS/function',
+      'JS/proxy-Reflect',
+      'JS/promise',
+      'JS/Iterator-Generator'
     ]
   },
   {

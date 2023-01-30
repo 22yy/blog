@@ -133,6 +133,12 @@ JSON.stringify([{name:'nls'},{sex:'男'}])===JSON.stringify([{name:'nls'},{sex:'
 return arr1.length===arr2.length && arr1.every((item,index)=>{return item===arr2[index]})
 ```  
 
+## split() 和 join()   
+ 
+split()是把一串字符串通过某个分隔符，分成若干个元素存放在一个数组里。     
+
+join()是把数组中的元素通过指定的字符串拼接，返回的是拼接好的字符串，相当于split()的逆操作。    
+
 ## 立即执行的具名函数A内修改A的值时到底发生了什么  
 
 [相关文章](https://segmentfault.com/q/1010000002810093)    
@@ -461,6 +467,34 @@ n秒内只执行一次，如果n秒内再次触发，只有一次生效
 ## 0.1 + 0.2 
 
 对浮点数进行计算时，将十进制转换为二进制，JS以64位双精度浮点数存储number类型，0.1,0.2转换成二进制时是无限循环小数，出现精度丢失  
+
+## Map 和 weakMap   
+
+>WeakMap的键名所引用的对象都是弱引用，即垃圾回收机制不将该引用考虑在内。因此，只要所引用的对象的其他引用都被清除，垃圾回收机制就会释放该对象所占用的内存。也就是说，一旦不再需要，WeakMap 里面的键名对象和所对应的键值对会自动消失，不用手动删除引用    
+
+- Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范国不限于字符串，各种类型的值（包括对象）都可以当作键。   
+
+- WeakMap 结构与 Map 结构类似，也是用于生成键值对的集合。但是 WeakMap 只接受对象作为键名（null 除外），不接受其他类型的值作为键名。而且WeakMap 的键名所指向的对象，不计入垃圾回收机制。      
+
+## 对异步编程的理解    
+
+在早期的时候，没有promise的出现之前，js中常用解决异步函数的方式是回调函数，回调函数有不少缺点，多个回调函数嵌套容易形成回调地狱，代码耦合度过高，不利于代码维护。     
+
+为了解决回调地狱的问题，从而出现了Promise，promise可以将嵌套的回调函数作为链式调用。Promise本身是同步的立即执行函数，Promise实例有三个状态Pending fulfilled,rejected， promise的进行状态一旦改变为其他状态就不会改变了。然后Promise是有一套自己的规范，提供了一些对应的api,    
+
+promise的对象方法有then,catch,finally    
+Promise的类方法有resolve,reject,all,allSettled,race,any等。    
+
+primise的缺点：   
+promise如果不设置回调西数，promise内部拋出的错误，不会反馈到外部。其次使用promise的时候，有时候会造成多个then的链式调用，可能会造成代码的语义就不太明确。     
+
+于是出现了async和await,async数本质是generator和promise实现的一个自动执行的语法糖，当函数内部执行到一个await语句的时候，如果语句返回一个promise对象，那么函数将会等待promise对象的状态变成resolve后继续执行。这样可以将异步的逻辑转化为同步来写，代码看起来更简洁。   
+
+async函数返回的是—个promise对象，如果没有返回值 则是返回一个Promise.resolve (undefined)    
+
+await在等什么？它等的如果不是一个promise对象那么await表达式的运算结果就是它等到的东西。如果是一个promise对象，那么await就会阻塞后面的代码，等着Promise对象resolve，然后等到resolve的值，作为await表达式的运算结果。     
+
+async和await还会支持try,catch来进行昇常捕获。更加便于调试      
 
 ## 图片的异步加载
 ```js

@@ -276,7 +276,7 @@ const router = new VueRouter({
  
 2. `beforeRouteUpdate (to, from, next)`
 
-- 当前路由改变，但改组件被复用时候调用  
+- 当前路由改变，但该组件被复用时候调用  
 
 - 该函数内可以访问组件实例(this)   
 
