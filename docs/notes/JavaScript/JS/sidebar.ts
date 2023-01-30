@@ -11,7 +11,8 @@ module.exports=[
       'JS/function',
       'JS/proxy-Reflect',
       'JS/promise',
-      'JS/Iterator-Generator'
+      'JS/Iterator-Generator',
+      'JS/async'
     ]
   },
   {
