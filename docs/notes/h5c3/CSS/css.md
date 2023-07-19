@@ -888,7 +888,7 @@ HTMLDivElement > HTMLElement > Element > Node > EvenTarget
 
 ### 以下代码能让child内容垂直居中吗
 
-假设HTML结构为<parent><child>content</child></parent>
+假设HTML结构为`<parent><child>content</child></parent>`
 
 ```css
 parent {
