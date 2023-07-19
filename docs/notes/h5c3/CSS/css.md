@@ -901,7 +901,7 @@ color：文本颜色
 <input type="text" value="我可以" />
 ```
 
-![img](E:\Typora\img\input)
+![img](./image/input.png)
 
 ### BFC
 
@@ -967,7 +967,7 @@ DOM 树一共有 12 种节点类型，常用的有 4 种：
 
 ### text-shadow
 
-![img](E:\Typora\img\text-shadow)
+![img](./image/text-shadow.png)
 
 ### 哪个元素表示外部资源
 
@@ -1024,7 +1024,7 @@ fieldset 元素可将表单内的相关元素分组。
 
 ### 能冒泡的元素
 
-![img](E:\Typora\img\bubble)
+![img](./image/bubble.png)
 
 ### 创建带有 ID 属性的 DOM 元素有什么副作用
 
@@ -1160,7 +1160,7 @@ SVG 与诸如 DOM 和 XSL 之类的 W3C 标准是一个整体
 
 ### svg 和 canvas
 
-![img](E:\Typora\img\svg-canvas)
+![img](./image/svg-canvas.png)
 
 canvas 绘制的图形不是 dom 元素，无法像操作 dom 一样操作修改。而 svg 是直接绘制 dom 元素，可以操作修改
 
