@@ -534,7 +534,7 @@ DOM 发生改变的时候触发重排，使 DOM 重新排列
 - HTML 就是一个 BFC
 - float 存在且不为 none
 - overflow 存在且不为 visible
-- display 为 flex、inline-block、table-cell,、table-caption、inline-flex
+- display 为 flex、inline-block、table-cell,、table-caption、inline-flex, inline-block
 - position 为 fixed 或 absolute
 
 1. 特性：
@@ -777,42 +777,6 @@ flex 包含三个属性：
 
 ## 牛客
 
-### 获取焦点
-
-1. contenteditable：true|false 规定元素文本是否可编辑； 
-
-2. tabindex：0 | -1 | x    
-
-   0：tab键可获取焦点；   
-
-   -1：tab键不可获取焦点；
-
-   x：x>0，x越小获取焦点优先级越高；
-
-3. a标签没有设置href属性时是不能获取到焦点
-
-```html
-<div contenteditable="true">我可以</div>
-
-<p tabindex="1">我可以</p>
-
-<a id="yes">我可以</a>
-
-<input type="text" value="我可以" />
-```
-
-![img](./image/input.png)
-
-
-### BFC
-
-如何创建BFC 
-
-1. float的值不是none。 
-2. position的值不是static或者relative。 
-3. display的值是inline-block、table-cell、flex、table-caption或者inline-flex 
-4. overflow的值不是visible   
-
 ### 伪元素和伪类的区别
 
 1. 伪类本质上是给元素创建多一个类名，多个类名多个效果
@@ -821,11 +785,11 @@ flex 包含三个属性：
 4. 可以同时使用多个伪类，而只能同时使用一个伪元素；
 
 ```css
-  :nth-child(n),n从1开始计数 
+:nth-child(n),n从1开始计数 
  
-  :nth-child(odd)和:nth-child(even),从1开始计数 
+:nth-child(odd)和:nth-child(even),从1开始计数 
  
-  :nth-child(an+b),n从0开始计数
+:nth-child(an+b),n从0开始计数
 ```
 
 ### overflow
@@ -847,10 +811,9 @@ flex 包含三个属性：
 
 ">"与"+"的规则如下：
 
-div > p：选择父元素是 <div> 的所有 <p> 元素
+div > p：选择父元素是 `<div> `的所有` <p> `元素
 
-div + p：选择紧跟 <div> 元素的**首个** <p> 元素
-
+div + p：选择紧跟` <div> `元素的**首个** `<p> `元素
 
 
 ### link与@import的区别
@@ -869,74 +832,28 @@ DOM树一共有12种节点类型，常用的有4种：
 3. Text类型（文本节点）——包含文本
 4. Comment类型（注释节点）——有时我们可以将一些信息放入其中，它不会显示，但JS可以从DOM中读取它。
 
-
 ### text-shadow
 
-![img](./image/text-shadow.png)
-
-
-###  哪个元素表示外部资源
-
-外部资源由 `<object> `元素表示，该元素可以被视为图像、嵌套的浏览上下文或插件要处理的资源。它包括各种属性，如存档、边框、分类、代码库、代码类型等
-
-### HTML5废除的元素
-
-1. 能用css代替的元素 
-   basefont、big、center、font、s、strike、tt、u。这些元素纯粹是为画面展示服务的，HTML5中提倡把画面展示性功能放在css中统一编辑。  
-
-2. 不再使用frame框架。 
-
-​    frameset、frame、noframes。HTML5中不支持frame框架，只支持iframe框架，或者用服务器方创建的由多个页面组成的符合页面的形式，删除以上这三个标签。 
-
-3. 只有部分浏览器支持的元素 
-
-​     applet、bgsound、blink、marquee等标签。
-
-### fieldset
-
-
-fieldset 元素可将表单内的相关元素分组。
-
-`<fieldset>` 标签将表单内容的一部分打包，生成一组相关表单的字段。
-
-当一组表单元素放到 `<fieldset> `标签内时，浏览器会以特殊方式来显示它们，它们可能有特殊的边界、3D 效果，或者甚至可创建一个子表单来处理这些元素。
-
-`<fieldset> `标签没有必需的或唯一的属性。
-
-`<legend>`为 fieldset 元素定义标题。
-
-```html
-<form>
-  <fieldset>
-    <legend>健康信息</legend>
-    身高：<input type="text" />
-    体重：<input type="text" />
-  </fieldset>
-</form> 
-```
+![img](./image/text-shadow.png)  
 
 ### meta
-
-  一个常用的针对移动网页优化过的页面的 viewport meta 标签大致如下： 
-
- 
+一个常用的针对移动网页优化过的页面的 viewport meta 标签大致如下： 
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
 
--    width：控制 viewport 的大小，可以指定的一个值，如 600，或者特殊的值，如 device-width 为设备的宽度（单位为缩放为 100% 时的 CSS 的像素）。    
--    height：和 width 相对应，指定高度。    
--    initial-scale：初始缩放比例，也即是当页面第一次 load 的时候缩放比例。    
--    maximum-scale：允许用户缩放到的最大比例。    
--    minimum-scale：允许用户缩放到的最小比例。    
--    user-scalable：用户是否可以手动缩放。
-
+- width：控制 viewport 的大小，可以指定的一个值，如 600，或者特殊的值，如 device-width 为设备的宽度（单位为缩放为 100% 时的 CSS 的像素）。    
+- height：和 width 相对应，指定高度。    
+- initial-scale：初始缩放比例，也即是当页面第一次 load 的时候缩放比例。    
+- maximum-scale：允许用户缩放到的最大比例。    
+- minimum-scale：允许用户缩放到的最小比例。    
+- user-scalable：用户是否可以手动缩放。
 
 
 ### 能冒泡的元素
 
-![img](./image/bubble.png)
+![img](./image/bubble.png)  
 
 ### 创建带有 ID 属性的 DOM 元素有什么副作用
 
@@ -950,73 +867,20 @@ fieldset 元素可将表单内的相关元素分组。
 **带有id的DOM树元素会成为全局变量**
 
 
+### 浮动元素重叠
 
-  ### 浮动元素重叠
+1. 行内元素与浮动元素发生重叠，边框、背景、内容都会显示在浮动元素之上
+2. 块级元素与浮动元素发生重叠，边框、背景会显示在浮动元素之下，内容会显示在浮动元素之上
 
-  1、行内元素与浮动元素发生重叠，边框、背景、内容都会显示在浮动元素之上
+###  calc()的运算规则 
 
-  2、块级元素与浮动元素发生重叠，边框、背景会显示在浮动元素之下，内容会显示在浮动元素之上
+calc()使用通用的数***算规则，但是也提供更智能的功能：  
 
-### transition-timing-function
-
-transition-timing-function属性指定切换效果的速度。
-
-此属性允许一个过渡效果，以改变其持续时间的速度。
-
-语法：transition-timing-function: cubic-bezier(*n*,*n*,*n*,*n*);
-
-贝塞尔曲线曲线由四个点 P0，P1，P2 和 P3 定义。P0 和 P3 是曲线的起点和终点。P0是（0,0）并且表示初始时间和初始状态，P3是（1,1）并且表示最终时间和最终状态。
-
-  P0：默认值 (0,0) P1：动态取值 (x1, y1) P2：动态取值 (x2, y2) P3：默认值 (1,1)
-
-我们需要关注的是 P1 和 P2 两点的取值，而其中 X 轴的取值范围是 0 到 1，当取值超出范围时 cubic-bezier 将失效；Y 轴的取值没有规定，当然也毋须过大。
-
-最直接的理解是，将以一条直线放在范围只有 1 的坐标轴中，并从中间拿出两个点来拉扯（X 轴的取值区间是 [0, 1]，Y 轴任意），最后形成的曲线就是动画的速度曲线。
-
-cubic-bezier() 可用于 [animation-timing-function](https://www.runoob.com/cssref/css3-pr-animation-timing-function.html) 和 [transition-timing-function](https://www.runoob.com/cssref/css3-pr-transition-timing-function.html) 属性。
-
-### 盒模型
-
- 标准盒子模型 ＝ margin + border + padding + width （width =  content ）      
-
-IE盒子模型 ＝ margin + width（width = border + padding + content ）
-
-
-
-###  alc()的运算规则 
-
-   calc()使用通用的数***算规则，但是也提供更智能的功能：  
-
-1. ​    使用“+”、“-”、“*” 和 “/”四则运算；      
-2. ​    可以使用百分比、px、em、rem等单位；      
-3. ​    可以混合使用各种单位进行计算；      
-4. ​    表达式中有“+”和“-”时，其前后必须要有空格，如"widht: calc(12%+5em)"这种没有空格的写法是错误的；      
-5. ​    表达式中有“*”和“/”时，其前后可以没有空格，但建议留有空格。  
-
-
-
-### Input标签的step属性
-
-  Step规定输入字段的合法数字间隔(如step=”2”,则合法数字可为-2，0，2，4等) 
-
-  Step属性的值为负数或0时默认为1，该属性可以配合max，min属性来创建合法值得范围。 
-
-  Step，max，min属性适用于<input>类型有:number,range,date,datetime,month,time,week 
-
-### HTML 音频/视频 方法  
-
-| 方法                                                         | 描述                                      |
-| :----------------------------------------------------------- | :---------------------------------------- |
-| [addTextTrack()](https://www.runoob.com/tags/av-met-addtexttrack.html) | 向音频/视频添加新的文本轨道。             |
-| [canPlayType()](https://www.runoob.com/tags/av-met-canplaytype.html) | 检测浏览器是否能播放指定的音频/视频类型。 |
-| [load()](https://www.runoob.com/tags/av-met-load.html)       | 重新加载音频/视频元素。                   |
-| [play()](https://www.runoob.com/tags/av-met-play.html)       | 开始播放音频/视频。                       |
-| [pause()](https://www.runoob.com/tags/av-met-pause.html)     | 暂停当前播放的音频/视频。                 |
-
-方法：load() play() pause()
-事件：play() playing() pause() seeked() seeking() abort()当音频/视频的加载已放弃时触发
-
-
+1. 使用“+”、“-”、“*” 和 “/”四则运算；      
+2. 可以使用百分比、px、em、rem等单位；      
+3. 可以混合使用各种单位进行计算；      
+4. 表达式中有“+”和“-”时，其前后必须要有空格，如"widht: calc(12%+5em)"这种没有空格的写法是错误的；      
+5. 表达式中有“*”和“/”时，其前后可以没有空格，但建议留有 
 
 ### dom中HTMLDivElement的正确继承关系是
 
@@ -1024,7 +888,7 @@ HTMLDivElement > HTMLElement > Element > Node > EvenTarget
 
 ### 以下代码能让child内容垂直居中吗
 
-假设HTML结构为`<parent><child>content</child></parent>`
+假设HTML结构为<parent><child>content</child></parent>
 
 ```css
 parent {
@@ -1036,7 +900,7 @@ vertical-align: middle;
 }
 ```
 
-把parent变成table，再把子元素变为table-cell，而vertical-align属性可以设置元素垂直对齐，前提条件：只能应用于内联元素以及display值为table-cell的元素。 
+>把parent变成table，再把子元素变为table-cell，而vertical-align属性可以设置元素垂直对齐，前提条件：只能应用于内联元素以及display值为table-cell的元素。 
 
 ```css
 parent:after {
@@ -1050,24 +914,10 @@ display: inline-block;
 vertical-align: middle;
 }
 ```
-设置伪元素。vertical-align属性定义行内元素的基线相对于该元素所在行的基线的垂直对齐。打个比方：有两个行内元素a和b，a和b都是img，如果a加了vertical-align:middle样式，b的底部（基线）就会对齐a的中间位置；如果a和b都加了一个vertical-align:middle样式。那么就互相对齐了对方的中间位置，也就是它们在垂直方向上的中线对齐了。 
 
-而伪元素的display属性默认值为inline，行内元素是无法设置宽高的，想要设置宽高需要将之设置为block或者inline-block。所以有错误，应该将：after设置为inline-block才行
+>设置伪元素。vertical-align属性定义行内元素的基线相对于该元素所在行的基线的垂直对齐。打个比方：有两个行内元素a和b，a和b都是img，如果a加了vertical-align:middle样式，b的底部（基线）就会对齐a的中间位置；如果a和b都加了一个vertical-align:middle样式。那么就互相对齐了对方的中间位置，也就是它们在垂直方向上的中线对齐了。 
 
-
-
-### 以下对form表单中input元素的readonly与disabled属性描述正确的是
-
-- disabled指当 input 元素加载时禁用此元素。input内容不会随着表单提交  
-- readonly规定输入字段为只读。input内容会随着表单提交。 
-- 无论设置readonly还是disabled，通过js脚本都能更改input的value（亲测可以）
-
-
-
-### p标签和a标签
-
-- p是块元素，但是其不能包含除了它本身之外的任何块元素
-- a是内联元素，但是它可以包含除了它本身外的任意块元素
+>而伪元素的display属性默认值为inline，行内元素是无法设置宽高的，想要设置宽高需要将之设置为block或者inline-block。所以有错误，应该将：after设置为inline-block才行
 
 ### 什么是SVG
 
@@ -1077,37 +927,11 @@ SVG 用来定义用于网络的基于矢量的图形
 SVG 使用 XML 格式定义图形
 SVG 图像在放大或改变尺寸的情况下其图形质量不会有所损失
 SVG 是万维网联盟的标准
-
 SVG 与诸如 DOM 和 XSL 之类的 W3C 标准是一个整体
-
 (SVG是HTML下的一个分支)
 
 ### svg和canvas
 
 ![img](./image/svg-canvas.png)
 
-canvas绘制的图形不是dom元素，无法像操作dom一样操作修改。而svg是直接绘制dom元素，可以操作修改    
 
-Canvas 是逐像素进行渲染的，在 canvas 中，一旦图形被绘制完成，它就不会继续得到浏览器的关注。如果其位置发生变化，那么整个场景也需要重新绘制，包括任何或许已被图形覆盖的对象。   
-
-### JSON和XML之间的区别
-
-  1、JSON是JavaScript Object Notation；XML是可扩展标记语言。    
-
-  2、JSON是基于JavaScript语言；XML源自SGML。    
-
-  3、JSON是一种表示对象的方式；XML是一种标记语言，使用标记结构来表示数据项。   
-
-  4、JSON不提供对命名空间的任何支持；XML支持名称空间。   
-
-  5、JSON支持数组；XML不支持数组。   
-
-  6、XML的文件相对难以阅读和解释；与XML相比，JSON的文件非常易于阅读。   
-
-  7、JSON不使用结束标记；XML有开始和结束标签。  
-
-  8、JSON的安全性较低；XML比JSON更安全。   
-
-  9、JSON不支持注释；XML支持注释。 
-
-  10、JSON仅支持UTF-8编码；XML支持各种编码
