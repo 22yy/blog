@@ -808,7 +808,7 @@ console.log("第三步");
 
 **.可以匹配除了换行符\n \r 外的任何字符**
 
-![img](E:\Typora\img\zhnegze)
+![img](./images/zhengze.png)
 
 exec() 方法用于检索字符串中的正则表达式的匹配, 返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。
 
