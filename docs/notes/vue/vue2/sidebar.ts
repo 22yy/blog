@@ -9,15 +9,25 @@ module.exports=[
     children: [{
       text: 'vuex基础',
       link: 'vue2/Vuex',
-    }]
+    },
+    {
+      text:'实现Vuex',
+      link:'vue2/Vuex-main'
+    }
+  ]
   }, 
   {
     text: 'vue-router',
     collapsable: true,
     children: [{
       text: 'vue-router基础知识',
-      link: 'vue2/vue-router'
-    }]
+      link: 'vue2/Vue-router'
+    },
+    {
+      text:'实现Vue-Router',
+      link:'vue2/Vue-router-main'
+    }
+  ]
 
   },
   {
