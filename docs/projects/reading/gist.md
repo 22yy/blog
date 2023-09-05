@@ -291,3 +291,8 @@ parseString(xml, {trim: true}, function (err, result) {
 - ignoreAttrs: 默认false，忽略所有xml属性，仅创建文本节点     
 
 [链接](https://blog.csdn.net/hsany330/article/details/115168342)    
+
+
+[链接](https://juejin.cn/post/7102056757161099295#heading-17)
+
+[multer文件上传](https://juejin.cn/post/7214146630466388026?searchId=2023072017050457EE597DE2F1CB188DDA)

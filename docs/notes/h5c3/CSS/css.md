@@ -407,9 +407,7 @@ div {
 
 - 伪元素与伪类的区别在于：**是否创造了新的元素**
 
-1. 伪元素：不存在 DOM 文档中，代表某个元素的子元素，仅逻辑上存在
-
-2. 伪元素有以下几种：  
+1. 伪元素有以下几种：  
    (1)`:first-letterl`/`::first-letter`：设置对象的第一个字符样式  
    (2)`:first-line`/`::first-line`：设置对象内第一行的样式  
    (3）`:before`/`:before`：设置在对象前发生的内容  
@@ -417,9 +415,7 @@ div {
    (5）`::placeholder`：设置对象文字占位符的样式  
    (6）`::selection`：设置对象被选择时的颜色
 
-3. 伪类：存在 DOM 文档中
-
-4. 伪类有以下：  
+2. 伪类有以下：  
    (1）`:link`：a 标签末被访问时的样式  
    (2)`:visited`：a 标签已被访问过的样式  
    (3）`:hover`：a 标签鼠标悬停时的样式  
@@ -637,6 +633,11 @@ SEO 就是搜索引擎优化，利用搜索引擎的搜索规则来提高网站�
 不同点是 alt 是图片不能正常显示时出现的提示信息；title 是鼠标移到元素上时显示的提示信息，而且大多数标签都支持 title 属性，但是优先级要低于 alt(都在图片上图片不能正常显示时)；title 内容可以比 alt 更长
 
 ## 垂直水平居中
+
+- flex布局
+- 绝对定位 + margin负值(已知子元素宽度)
+- 绝对定位 + transform
+- 针对文本：text-align: center; line-height 和 height相等
 
 1. absolute + translate
 
@@ -935,3 +936,120 @@ SVG 与诸如 DOM 和 XSL 之类的 W3C 标准是一个整体
 ![img](./image/svg-canvas.png)
 
 
+### p标签和a标签
+
+- p是块元素，但是其不能包含除了它本身之外的任何块元素
+- a是内联元素，但是它可以包含除了它本身外的任意块元素
+
+### 以下对form表单中input元素的readonly与disabled属性描述正确的是
+
+- disabled指当 input 元素加载时禁用此元素。input内容不会随着表单提交  
+- readonly规定输入字段为只读。input内容会随着表单提交。 
+- 无论设置readonly还是disabled，通过js脚本都能更改input的value（亲测可以）
+
+### 获取焦点
+
+1. contenteditable：true|false 规定元素文本是否可编辑； 
+
+2. tabindex：0 | -1 | x    
+
+   0：tab键可获取焦点；   
+
+   -1：tab键不可获取焦点；
+
+   x：x>0，x越小获取焦点优先级越高；
+
+3. a标签没有设置href属性时是不能获取到焦点
+
+```html
+<div contenteditable="true">我可以</div>
+
+<p tabindex="1">我可以</p>
+
+<a id="yes">我可以</a>
+
+<input type="text" value="我可以" />
+```
+
+![img](./image/input.png)
+
+### 可继承的属性
+
+**一、无继承性的属性** 
+1. display：规定元素应该生成的框的类型  
+
+2. 文本属性： 
+vertical-align：垂直文本对齐  
+text-decoration：规定添加到文本的装饰  
+text-shadow：文本阴影效果  
+white-space：空白符的处理  
+unicode-bidi：设置文本的方向  
+
+
+3. 盒子模型的属性：**width**、**height**、**margin** 、margin-top、margin-right、margin-bottom、margin-left、**border**、border-style、border-top-style、border-right-style、border-bottom-style、border-left-style、border-width、border-top-width、border-right-right、border-bottom-width、border-left-width、border-color、border-top-color、border-right-color、border-bottom-color、border-left-color、border-top、border-right、border-bottom、border-left、**padding**、padding-top、padding-right、padding-bottom、padding-left 
+
+ 
+4. 背景属性：background、background-color、background-image、background-repeat、background-position、background-attachment 
+
+5. 定位属性：float、clear、position、top、right、bottom、left、min-width、min-height、max-width、max-height、overflow、clip、z-index 
+6、生成内容属性：content、counter-reset、counter-increment 
+
+7. 轮廓样式属性：outline-style、outline-width、outline-color、outline 
+
+8. 页面样式属性：size、page-break-before、page-break-after 
+
+9. 声音样式属性：pause-before、pause-after、pause、cue-before、cue-after、cue、play-during 
+
+**有继承性的属性**    
+
+1、字体系列属性 
+font：组合字体  
+font-family：规定元素的字体系列  
+font-weight：设置字体的粗细 
+font-size：设置字体的尺寸  
+font-style：定义字体的风格  
+font-variant：设置小型大写字母的字体显示文本，这意味着所有的小写字母均会被转换为大写，但是所有使用小型大写字体的字母文本相比，其字体尺寸更小。  
+font-stretch：对当前的 font-family 进行伸缩变形。所有主流浏览器都不支持。 
+font-size-adjust：为某个元素规定一个 aspect 值，这样就可以保持首选字体的 x-height。 
+
+ 
+2. 文本系列属性  
+text-indent：文本缩进  
+text-align：文本水平对齐  
+line-height：行高 
+word-spacing：增加或减少单词间的空白（即字间隔） 
+letter-spacing：增加或减少字符间的空白（字符间距） 
+text-transform：控制文本大小写 
+direction：规定文本的书写方向 
+color：文本颜色 
+
+3. 元素可见性：visibility 
+4. 表格布局属性：caption-side、border-collapse、border-spacing、empty-cells、table-layout 
+5. 列表布局属性：list-style-type、list-style-image、list-style-position、list-style 
+6. 生成内容属性：quotes 
+7. 光标属性：cursor 
+8. 页面样式属性：page、page-break-inside、windows、orphans 
+9. 声音样式属性：speak、speak-punctuation、speak-numeral、speak-header、speech-rate、volume、voice-family、pitchpitch-range、stress、richness、、azimuth、elevation 
+
+
+**所有元素可以继承的属性**    
+
+1. 元素可见性：visibility 
+
+2. 光标属性：cursor 
+
+**内联元素可以继承的属性**   
+
+1. 字体系列属性 
+
+2. 除`text-indent、text-align`之外的文本系列属性 
+
+**块级元素可以继承的属性**   
+`text-indent`、`text-align`
+
+ ### 浏览器在处理下面的 css 的时候，会使用 GPU 渲染 
+
+- **transform**（当 3D 变换的样式出现时会使用 GPU 加速）    
+- ​**opacity** 用于指定元素透明度   
+- ​**filter** 修改所有图片的颜色为黑白   
+- ​**will-change** 过告知浏览器该元素会有哪些变化，使浏览器提前做好优化准备，增强页面渲染性能

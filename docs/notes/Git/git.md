@@ -362,3 +362,10 @@ git remote rm origin 
 git remote add origin [url]
 ```
 3. 直接修改.git里的config文件   
+
+
+git reset HEAD --soft 回撤提交到暂存区  
+ 
+git reset HEAD --hard // 回撤提交 放弃变更 (慎用)   
+
+git revert HEAD //撤销最近一次提交 ,git revert 命令意思是撤销某次提交。它会产生一个新的提交，虽然代码回退了，但是版本依然是向前的   
