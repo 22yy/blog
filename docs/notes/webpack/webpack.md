@@ -58,7 +58,13 @@ webpack 的运行流程是一个串行的过程，从启动到结束会依次执
 7. 输出完成 ：在确定好输出内容后，根据配置确定输出的路径和文件名，把文件内容写
 入到文件系统，在以上过程中，webpack 会在特定的时间点广播出特定的事件，插件在监听到
 感兴趣的事件后会执行特定的逻辑，并且插件可以调用 webpack 提供的 API 改变 webpack
-的运行结果
+的运行结果  
+
+简单来说：
+- 初始化：启动构建，读取与合并配置参数，加载 Plugin，实例化 Compiler
+- 编译：从 Entry 出发，针对每个 Module 串行调用对应的 Loader 去翻译文件的内容，再找到该 Module 依赖的 Module，递归地进行编译处理
+- 输出：将编译后的 Module 组合成 Chunk，将 Chunk 转换成文件，输出到文件系统中
+
 
 ## 热更新原理   
 
@@ -80,6 +86,15 @@ hash)，这样客户端就可以再借助这些信息继续向 WDS 发起 jsonp 
 )  
 由 HotModulePlugin 来完成，提供了相关 API 以供开发者针对自身场景进行处理，像 react
 hot-loader 和 vue-loader 都是借助这些 API 实现 HMR
+
+关于webpack热模块更新的总结如下：
+
+1. 通过webpack-dev-server创建两个服务器：提供静态资源的服务（express）和Socket服务
+2. express server 负责直接提供静态资源的服务（打包后的资源直接被浏览器请求和解析）
+3. socket server 是一个 websocket 的长连接，双方可以通信
+4. 当 socket server 监听到对应的模块发生变化时，会生成两个文件.json（manifest文件）和.js文件（update chunk）
+5. 通过长连接，socket server 可以直接将这两个文件主动发送给客户端（浏览器）
+6. 浏览器拿到两个新的文件后，通过HMR runtime机制，加载这两个文件，并且针对修改的模块进行更新
 
 
 ## webpack与grunt, gulp的不同
